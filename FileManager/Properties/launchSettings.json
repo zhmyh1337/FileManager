@@ -1,8 +1,7 @@
 {
   "profiles": {
     "FileManager": {
-      "commandName": "Project",
-      "commandLineArgs": "-r \"a b\" c d"
+      "commandName": "Project"
     }
   }
 }
