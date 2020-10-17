@@ -3,6 +3,21 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>zhmyh</Authors>
+    <Company>zhmyh airlines</Company>
+    <SignAssembly>false</SignAssembly>
+    <Version>1.3.3.7</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\" />
+    <Folder Include="src\Commands\" />
+  </ItemGroup>
 
 </Project>
