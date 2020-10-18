@@ -1,9 +1,10 @@
 ﻿using CommandLine;
+using FileManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FileManager
+namespace Command
 {
     /// <summary>
     /// This interface is responsible for -q (--quite) option.
@@ -31,7 +32,7 @@ namespace FileManager
     /// </summary>
     abstract class Quitable : IQuite
     {
-        [Option('q', "quite", HelpText = "Suppresses summary message.")]
+        [Option('q', "quite", HelpText = "quiteQuite", ResourceType = typeof(Localization))]
         public bool Quite { get; set; }
     }
 }
