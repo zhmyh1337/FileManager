@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Command
 {
+    /// <summary>
+    /// This command changes the disk if specified, otherwise displays the list of all disks.
+    /// </summary>
     interface IDisk
     {
         [Option("disk", 

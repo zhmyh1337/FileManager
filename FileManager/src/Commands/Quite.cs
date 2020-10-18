@@ -21,6 +21,7 @@ namespace Command
 
     /// <summary>
     /// We need to inherit from this class every time the user is working w/o args.
+    /// I will use a name like "NCommand" for such command classes.
     /// </summary>
     abstract class NotQuitable : IQuite
     {
@@ -29,6 +30,7 @@ namespace Command
 
     /// <summary>
     /// We need to inherit from this class every time the user is working w/ args.
+    /// I will use a name like "QCommand" for such command classes.
     /// </summary>
     abstract class Quitable : IQuite
     {

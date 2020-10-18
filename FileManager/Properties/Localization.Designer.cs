@@ -61,7 +61,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This is test (default localization)..
+        ///   Looks up a localized string similar to This command changes the disk if specified, otherwise displays the list of all disks..
         /// </summary>
         public static string cmdDisk {
             get {
@@ -70,7 +70,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disk to specify..
+        ///   Looks up a localized string similar to Disk to change..
         /// </summary>
         public static string diskDisk {
             get {

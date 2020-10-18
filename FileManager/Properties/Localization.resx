@@ -121,9 +121,9 @@
     <value>Suppresses summary message.</value>
   </data>
   <data name="cmdDisk" xml:space="preserve">
-    <value>This is test (default localization).</value>
+    <value>This command changes the disk if specified, otherwise displays the list of all disks.</value>
   </data>
   <data name="diskDisk" xml:space="preserve">
-    <value>Disk to specify.</value>
+    <value>Disk to change.</value>
   </data>
 </root>

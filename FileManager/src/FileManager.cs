@@ -12,6 +12,7 @@ namespace FileManager
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(Properties.Localization.cmdDisk);
             Parser.Default.ParseArguments<Command.NDisk, Command.X>(args);
 //             Parser.Default.ParseArguments<A>(args)
 //                 .WithParsed<A>(x => { x.Quite = true; Console.WriteLine(x); });
