@@ -17,7 +17,6 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="obj\" />
-    <Folder Include="src\Commands\" />
   </ItemGroup>
 
 </Project>
