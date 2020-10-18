@@ -20,21 +20,33 @@ namespace Command
     }
 
     /// <summary>
-    /// We need to inherit from this class every time the user is working w/o args.
-    /// I will use a name like "NCommand" for such command classes.
+    /// We need to implement this interface every time the user is working w/o args.
+    /// I will use a name like "QCommand" for such command classes.
     /// </summary>
-    abstract class NotQuitable : IQuite
+    /// <remarks>
+    /// To my mind, the best implementation will be:
+    /// <code>
+    /// public bool Quite { get; set; }
+    /// </code>
+    /// </remarks>
+    interface IQuiteable : IQuite
     {
-        public bool Quite { get => false; set => throw new NotImplementedException(); }
+        [Option('q', "quite", HelpText = "quiteQuite", ResourceType = typeof(Localization))]
+        new bool Quite { get; set; }
     }
 
     /// <summary>
-    /// We need to inherit from this class every time the user is working w/ args.
-    /// I will use a name like "QCommand" for such command classes.
+    /// We need to implement this interface every time the user is working w/o args.
+    /// I will use a name like "NCommand" for such command classes.
     /// </summary>
-    abstract class Quitable : IQuite
+    /// <remarks>
+    /// To my mind, the best implementation will be:
+    /// <code>
+    /// public bool Quite { get => false; set => throw new NotImplementedException(); }
+    /// </code>
+    /// </remarks>
+    interface INotQuiteable : IQuite
     {
-        [Option('q', "quite", HelpText = "quiteQuite", ResourceType = typeof(Localization))]
-        public bool Quite { get; set; }
+        new bool Quite { get; set; }
     }
 }

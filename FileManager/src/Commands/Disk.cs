@@ -9,23 +9,25 @@ namespace Command
     /// <summary>
     /// This command changes the disk if specified, otherwise displays the list of all disks.
     /// </summary>
-    interface IDisk
-    {
-        [Option("disk", 
-            HelpText = "diskDisk",
-            Required = true,
-            ResourceType = typeof(Localization))]
-        string Disk { get; set; }
-    }
-
     [Verb("disk", HelpText = "cmdDisk", ResourceType = typeof(Localization))]
-    class NDisk : IDisk
+    abstract class BaseDisk
     {
+        [Option("disk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
         public string Disk { get; set; }
+
+        public void Execute()
+        {
+            Console.WriteLine((this as IQuite).Quite);
+        }
+    }
+    
+    class QDisk : BaseDisk, IQuiteable
+    {
+        public bool Quite { get; set; }
     }
 
-    [Verb("tmp")]
-    class X
+    class NDisk : BaseDisk, INotQuiteable
     {
+        public bool Quite { get => false; set => throw new NotImplementedException(); }
     }
 }
