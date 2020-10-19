@@ -16,14 +16,51 @@ namespace Command
         [Option("disk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
         public string Disk { get; set; }
 
-        public void Execute(Action afterError)
+        public void Execute(Action onError)
         {
             // TODO table with ID, name, space, type etc.
-
-            Console.WriteLine(Disk ?? "(null)");
-            foreach (var drive in DriveInfo.GetDrives())
+            try
             {
-                Console.WriteLine(drive.DriveType.ToString());
+                var allDrives = DriveInfo.GetDrives();
+
+                if (Disk == null)
+                {
+                    int id = 1;
+                    foreach (var drive in allDrives)
+                    {
+                        Console.WriteLine($"{id++}) {drive.Name}");
+                    }
+                }
+                else
+                {
+                    if (uint.TryParse(Disk, out var id))
+                    {
+                        if (id < 1 || id > allDrives.Length)
+                        {
+                            throw new ArgumentException("Todo1");
+                        }
+                        else
+                        {
+                            FileManager.FileManager.workingDir = allDrives[id - 1].RootDirectory;
+                        }
+                    }
+                    else
+                    {
+                        var found = Array.Find(allDrives, x => x.Name == Disk);
+                        if (found == null)
+                        {
+                            throw new ArgumentException("Todo2");
+                        }
+                        else
+                        {
+                            FileManager.FileManager.workingDir = found.RootDirectory;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }

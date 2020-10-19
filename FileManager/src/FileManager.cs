@@ -28,9 +28,14 @@ namespace FileManager
                 {
                     Console.Write("{0}> ", workingDir);
                     string readParameters = Console.ReadLine();
-                    parser.ParseArguments(ArgsParser.SplitCommandLine(readParameters), notQuiteableCommands)
-                        .WithParsed(x => Execute((Command.ICommand)x))
-                        .WithNotParsed(x => HandleErrors(x));
+
+                    // Skip if no not white characters in string.
+                    if (!string.IsNullOrWhiteSpace(readParameters))
+                    {
+                        parser.ParseArguments(ArgsParser.SplitCommandLine(readParameters), notQuiteableCommands)
+                            .WithParsed(x => Execute((Command.ICommand)x))
+                            .WithNotParsed(x => HandleErrors(x));
+                    }
                 }
                 firstCommand = false;
             }
