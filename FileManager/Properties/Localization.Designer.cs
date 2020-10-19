@@ -79,6 +79,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Command &quot;{0}&quot; is not recognized..
+        /// </summary>
+        public static string eBadCommand {
+            get {
+                return ResourceManager.GetString("eBadCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find the disk with name &quot;{0}&quot;..
         /// </summary>
         public static string eDiskInvalidName {

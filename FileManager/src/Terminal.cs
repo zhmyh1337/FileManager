@@ -32,7 +32,7 @@ namespace FileManager
             // To show help/version when --help/--version is specified,
             // we will generate HelpText manually but only when the error
             // is caused by --help/--version options.
-            var parser = new Parser(/*x => x.HelpWriter = null*/);
+            var parser = new Parser();
 
             WorkingCycle(args, launchingWithArgs, parser);
 
@@ -86,7 +86,8 @@ namespace FileManager
         }
 
         /// <summary>
-        /// This method generates help text when a verb was specified.
+        /// This method generates help text when a verb was specified,
+        /// but an error occured (e. g. when parsing options).
         /// It shows our options + "--help" option.
         /// </summary>
         private static HelpText GenerateVerbHelpText() => HelpText.AutoBuild(
@@ -95,21 +96,25 @@ namespace FileManager
             {
                 e.AutoHelp = true;
                 e.AutoVersion = false;
+                e.Heading = string.Empty;
+                e.Copyright = string.Empty;
                 return HelpText.DefaultParsingErrorsHandler(lastParserResult, e);
             },
             ex => ex
         );
 
         /// <summary>
-        /// This method generates help text when no verb was specified.
+        /// This method generates help text when "help" or "--help" command was specified.
         /// It shows our commands + "version" + "help".
         /// </summary>
-        private static HelpText GenerateNoVerbHelpText() => HelpText.AutoBuild(
+        private static HelpText GenerateHelpHelpText() => HelpText.AutoBuild(
             lastParserResult,
             e =>
             {
                 e.AutoHelp = true;
                 e.AutoVersion = true;
+                e.Heading = string.Empty;
+                e.Copyright = string.Empty;
                 return HelpText.DefaultParsingErrorsHandler(lastParserResult, e);
             }
         );
@@ -120,28 +125,42 @@ namespace FileManager
             // We need this because "version" and "cmd --version"
             // throw the same error and we want to differentiate it.
             bool verbSpecified = lastParserResult.TypeInfo.Current != typeof(NullInstance);
-
-            switch (errors.First().Tag)
+            
+            switch (errors?.FirstOrDefault())
             {
-                case ErrorType.HelpVerbRequestedError:
-                    Console.WriteLine(GenerateVerbHelpText());
+                case VersionRequestedError e:
+                    if (verbSpecified)
+                    {
+                        Console.WriteLine(Localization.eVersionAsOption);
+                    }
+                    else
+                    {
+                        Console.WriteLine(HeadingInfo.Default);
+                    }
                     break;
-                case ErrorType.HelpRequestedError:
-                    Console.WriteLine(GenerateNoVerbHelpText());
+                // That's ok. Just continuing.
+                case NoVerbSelectedError e:
                     break;
-                case ErrorType.VersionRequestedError when verbSpecified:
-                    Console.WriteLine(Localization.eVersionAsOption);
+                case BadVerbSelectedError e:
+                    Console.WriteLine(string.Format(Localization.eBadCommand, e.Token));
+                    break;
+                default:
+                    if (verbSpecified)
+                    {
+                        Console.WriteLine(GenerateVerbHelpText());
+                    }
+                    else
+                    {
+                        Console.WriteLine(GenerateHelpHelpText());
+                    }
                     break;
             }
-            Console.WriteLine(verbSpecified);
-            Console.WriteLine(errors?.First());
-            Console.WriteLine(errors?.Count());
-            Console.WriteLine();
-//             Console.WriteLine(GenerateVerbHelpText());
         }
 
         private static void HandleErrorsArgsLaunching(IEnumerable<Error> errors)
         {
+            HandleErrors(errors);
+            return;
             Console.WriteLine($"{lastParserResult.TypeInfo.Current.Name}");
 //             Console.WriteLine(lastParserResult.TypeInfo.C);
             Console.WriteLine(HelpText.AutoBuild(lastParserResult, e =>

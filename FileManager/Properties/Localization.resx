@@ -135,4 +135,7 @@
   <data name="eVersionAsOption" xml:space="preserve">
     <value>"--version" option is invalid in this context.</value>
   </data>
+  <data name="eBadCommand" xml:space="preserve">
+    <value>Command "{0}" is not recognized.</value>
+  </data>
 </root>
