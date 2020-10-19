@@ -117,13 +117,127 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cdDir" xml:space="preserve">
+    <value>Каталог для изменения.</value>
+  </data>
+  <data name="cmdCd" xml:space="preserve">
+    <value>Эта команда изменяет рабочий каталог.</value>
+  </data>
+  <data name="cmdColor" xml:space="preserve">
+    <value>Эта команда изменяет цвет переднего плана консоли (или, если не указан, показывает все цвета консоли).</value>
+  </data>
+  <data name="cmdCopy" xml:space="preserve">
+    <value>Эта команда изменяет цвет переднего плана консоли (или, если не указан, показывает все цвета консоли).</value>
+  </data>
+  <data name="cmdDelFile" xml:space="preserve">
+    <value>Эта команда удаляет файл.</value>
+  </data>
+  <data name="cmdDir" xml:space="preserve">
+    <value>Эта команда проверяет каталог на наличие файлов и/или каталогов.</value>
+  </data>
   <data name="cmdDisk" xml:space="preserve">
     <value>Эта команда изменяет диск, если он указан, в противном случае отображает список всех дисков.</value>
   </data>
+  <data name="cmdMove" xml:space="preserve">
+    <value>Эта команда перемещает файл из одного места в другое (и перезаписывает старый файл, если он указан). все диски.</value>
+  </data>
+  <data name="cmdNewFile" xml:space="preserve">
+    <value>Эта команда создает новый файл (и заполняет его содержимым в некоторой кодировке, если указано).</value>
+  </data>
+  <data name="cmdPrint" xml:space="preserve">
+    <value>Эта команда выводит на консоль содержимое одного (или нескольких файлов) с кодировкой по умолчанию (или указанной).</value>
+  </data>
+  <data name="colorColor" xml:space="preserve">
+    <value>Цвет для указания (необязательно).</value>
+  </data>
+  <data name="copyFrom" xml:space="preserve">
+    <value>Copy from file path.</value>
+  </data>
+  <data name="copyOverwrite" xml:space="preserve">
+    <value>Whether to overwrite the file.</value>
+  </data>
+  <data name="copyTo" xml:space="preserve">
+    <value>Copy to file path.</value>
+  </data>
   <data name="debuggerWarning" xml:space="preserve">
-    <value>Чтобы не видеть таких сообщений, компилируйте в релизе.</value>
+    <value>To not see such messages, compile in release.</value>
+  </data>
+  <data name="delFileFile" xml:space="preserve">
+    <value>File to delete.</value>
+  </data>
+  <data name="dirDir" xml:space="preserve">
+    <value>Directory to scan (optional).</value>
+  </data>
+  <data name="dirDirectories" xml:space="preserve">
+    <value>Directories:</value>
+  </data>
+  <data name="dirFiles" xml:space="preserve">
+    <value>Files:</value>
+  </data>
+  <data name="dirHideDirs" xml:space="preserve">
+    <value>Hide directories.</value>
+  </data>
+  <data name="dirHideFiles" xml:space="preserve">
+    <value>Hide files.</value>
+  </data>
+  <data name="diskDisk" xml:space="preserve">
+    <value>Disk to set (either its ID or name).</value>
+  </data>
+  <data name="eBadCommand" xml:space="preserve">
+    <value>Command "{0}" is not recognized. Use "help" command.</value>
+  </data>
+  <data name="eColorBounds" xml:space="preserve">
+    <value>Color {0} is out of bounds.</value>
+  </data>
+  <data name="eDirNotExists" xml:space="preserve">
+    <value>This directory doesn't exist.</value>
+  </data>
+  <data name="eDiskInvalidName" xml:space="preserve">
+    <value>Unable to find the disk with name "{0}".</value>
+  </data>
+  <data name="eDiskInvalidNumber" xml:space="preserve">
+    <value>Unable to find the disk with number {0}.</value>
+  </data>
+  <data name="eFileExists" xml:space="preserve">
+    <value>File "{0}" exists.</value>
+  </data>
+  <data name="eFileNotExists" xml:space="preserve">
+    <value>File "{0}" doesn't exist.</value>
+  </data>
+  <data name="eVersionAsOption" xml:space="preserve">
+    <value>"--version" option is invalid in this context.</value>
+  </data>
+  <data name="moveFrom" xml:space="preserve">
+    <value>Move from file path.</value>
+  </data>
+  <data name="moveOverwrite" xml:space="preserve">
+    <value>Whether to overwrite the file.</value>
+  </data>
+  <data name="moveTo" xml:space="preserve">
+    <value>Move to file path.</value>
+  </data>
+  <data name="newFileEnc" xml:space="preserve">
+    <value>Encoding (either Default, UTF8, ASCII or Unicode).</value>
+  </data>
+  <data name="newFileFile" xml:space="preserve">
+    <value>File to create.</value>
+  </data>
+  <data name="newFileLines" xml:space="preserve">
+    <value>Lines to write to a new file.</value>
+  </data>
+  <data name="newFileOverwrite" xml:space="preserve">
+    <value>Whether to overwrite the file if it exists.</value>
+  </data>
+  <data name="printEnc" xml:space="preserve">
+    <value>Encoding (either Default, UTF8, ASCII or Unicode).</value>
+  </data>
+  <data name="printFiles" xml:space="preserve">
+    <value>Files to print.</value>
+  </data>
+  <data name="quiteQuite" xml:space="preserve">
+    <value>Suppresses summary message and stops executing after the command completes.</value>
   </data>
   <data name="successfulOperation" xml:space="preserve">
-    <value>Операция выполнена успешно.</value>
+    <value>Операция успешно завершена.</value>
   </data>
 </root>
