@@ -79,6 +79,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command changes the foreground color of the console (or, if not specified, shows all console colors)..
+        /// </summary>
+        public static string cmdColor {
+            get {
+                return ResourceManager.GetString("cmdColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command copies file from one place to another (and overwrites the old file it if specified)..
         /// </summary>
         public static string cmdCopy {
@@ -138,6 +147,15 @@ namespace FileManager.Properties {
         public static string cmdPrint {
             get {
                 return ResourceManager.GetString("cmdPrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color to specify (optional)..
+        /// </summary>
+        public static string colorColor {
+            get {
+                return ResourceManager.GetString("colorColor", resourceCulture);
             }
         }
         
@@ -250,6 +268,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Color {0} is out of bounds..
+        /// </summary>
+        public static string eColorBounds {
+            get {
+                return ResourceManager.GetString("eColorBounds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This directory doesn&apos;t exist..
         /// </summary>
         public static string eDirNotExists {
@@ -354,6 +381,15 @@ namespace FileManager.Properties {
         public static string newFileLines {
             get {
                 return ResourceManager.GetString("newFileLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether to overwrite the file if it exists..
+        /// </summary>
+        public static string newFileOverwrite {
+            get {
+                return ResourceManager.GetString("newFileOverwrite", resourceCulture);
             }
         }
         

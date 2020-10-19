@@ -180,6 +180,9 @@
   <data name="printFiles" xml:space="preserve">
     <value>Files to print.</value>
   </data>
+  <data name="cmdColor" xml:space="preserve">
+    <value>This command changes the foreground color of the console (or, if not specified, shows all console colors).</value>
+  </data>
   <data name="cmdCopy" xml:space="preserve">
     <value>This command copies file from one place to another (and overwrites the old file it if specified).</value>
   </data>
@@ -192,6 +195,9 @@
   <data name="cmdNewFile" xml:space="preserve">
     <value>This command creates a new file (and fills it with content in some encoding if specified).</value>
   </data>
+  <data name="colorColor" xml:space="preserve">
+    <value>Color to specify (optional).</value>
+  </data>
   <data name="copyFrom" xml:space="preserve">
     <value>Copy from file path.</value>
   </data>
@@ -203,6 +209,9 @@
   </data>
   <data name="delFileFile" xml:space="preserve">
     <value>File to delete.</value>
+  </data>
+  <data name="eColorBounds" xml:space="preserve">
+    <value>Color {0} is out of bounds.</value>
   </data>
   <data name="eFileExists" xml:space="preserve">
     <value>File "{0}" exists.</value>
@@ -224,5 +233,8 @@
   </data>
   <data name="newFileLines" xml:space="preserve">
     <value>Lines to write to a new file.</value>
+  </data>
+  <data name="newFileOverwrite" xml:space="preserve">
+    <value>Whether to overwrite the file if it exists.</value>
   </data>
 </root>

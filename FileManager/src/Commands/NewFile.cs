@@ -25,6 +25,9 @@ namespace Command
         [Option('e', "encoding", Default = EncodingTypes.Default, HelpText = "newFileEnc", ResourceType = typeof(Localization))]
         public EncodingTypes Encoding_ { get; set; }
 
+        [Option('o', "overwrite", HelpText = "newFileOverwrite", ResourceType = typeof(Localization))]
+        public bool Overwrite { get; set; }
+
         [Value(0, MetaName = "file", HelpText = "newFileFile", Required = true, ResourceType = typeof(Localization))]
         public string FilePath { get; set; }
 
@@ -46,7 +49,7 @@ namespace Command
                     _ => Encoding.Default,
                 };
 
-                if (File.Exists(FilePath))
+                if (!Overwrite && File.Exists(FilePath))
                 {
                     throw new ArgumentException(string.Format(Localization.eFileExists, FilePath));
                 }

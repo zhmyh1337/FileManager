@@ -29,11 +29,7 @@ namespace FileManager
 
             WorkingCycle(args, launchingWithArgs, parser);
 
-//             foreach (ConsoleColor color in Enum.GetValues(typeof(ConsoleColor)))
-//             {
-//                 Console.ForegroundColor = color;
-//                 Console.WriteLine($"Foreground color set to {color}");
-//             }
+
         }
 
         private static void WorkingCycle(string[] args, bool launchingWithArgs, Parser parser)
@@ -199,6 +195,7 @@ namespace FileManager
             typeof(Command.QMove),
             typeof(Command.QDeleteFile),
             typeof(Command.QNewFile),
+            typeof(Command.QColor),
         };
 
         /// <summary>
@@ -213,6 +210,7 @@ namespace FileManager
             typeof(Command.NMove),
             typeof(Command.NDeleteFile),
             typeof(Command.NNewFile),
+            typeof(Command.NColor),
         };
 
         /// <summary>
