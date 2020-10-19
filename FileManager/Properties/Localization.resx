@@ -150,4 +150,22 @@
   <data name="eDirNotExists" xml:space="preserve">
     <value>This directory doesn't exist.</value>
   </data>
+  <data name="cmdDir" xml:space="preserve">
+    <value>This command scans directory for files and/or directories.</value>
+  </data>
+  <data name="dirDir" xml:space="preserve">
+    <value>Directory to scan (optional).</value>
+  </data>
+  <data name="dirDirectories" xml:space="preserve">
+    <value>Directories:</value>
+  </data>
+  <data name="dirFiles" xml:space="preserve">
+    <value>Files:</value>
+  </data>
+  <data name="dirHideDirs" xml:space="preserve">
+    <value>Hide directories.</value>
+  </data>
+  <data name="dirHideFiles" xml:space="preserve">
+    <value>Hide files.</value>
+  </data>
 </root>

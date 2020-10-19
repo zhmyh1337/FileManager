@@ -192,6 +192,7 @@ namespace FileManager
         private static readonly Type[] quiteableCommands = new Type[] {
             typeof(Command.QDisk),
             typeof(Command.QChangeDir),
+            typeof(Command.QDir),
         };
 
         /// <summary>
@@ -200,6 +201,7 @@ namespace FileManager
         private static readonly Type[] notQuiteableCommands = new Type[] {
             typeof(Command.NDisk),
             typeof(Command.NChangeDir),
+            typeof(Command.NDir),
         };
 
         /// <summary>

@@ -79,6 +79,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command scans directory for files and/or directories..
+        /// </summary>
+        public static string cmdDir {
+            get {
+                return ResourceManager.GetString("cmdDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command changes the disk if specified, otherwise displays the list of all disks..
         /// </summary>
         public static string cmdDisk {
@@ -93,6 +102,51 @@ namespace FileManager.Properties {
         public static string debuggerWarning {
             get {
                 return ResourceManager.GetString("debuggerWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directory to scan (optional)..
+        /// </summary>
+        public static string dirDir {
+            get {
+                return ResourceManager.GetString("dirDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directories:.
+        /// </summary>
+        public static string dirDirectories {
+            get {
+                return ResourceManager.GetString("dirDirectories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files:.
+        /// </summary>
+        public static string dirFiles {
+            get {
+                return ResourceManager.GetString("dirFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide directories..
+        /// </summary>
+        public static string dirHideDirs {
+            get {
+                return ResourceManager.GetString("dirHideDirs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide files..
+        /// </summary>
+        public static string dirHideFiles {
+            get {
+                return ResourceManager.GetString("dirHideFiles", resourceCulture);
             }
         }
         
