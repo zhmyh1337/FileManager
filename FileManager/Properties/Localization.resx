@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="quiteQuite" xml:space="preserve">
-    <value>Suppresses summary message.</value>
+    <value>Suppresses summary message and stops executing after the command completes.</value>
   </data>
   <data name="cmdDisk" xml:space="preserve">
     <value>This command changes the disk if specified, otherwise displays the list of all disks.</value>
   </data>
   <data name="diskDisk" xml:space="preserve">
-    <value>Disk to change.</value>
+    <value>Disk to set (either its ID or name).</value>
   </data>
 </root>

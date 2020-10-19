@@ -2,6 +2,7 @@
 using FileManager.Properties;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Command
@@ -10,14 +11,20 @@ namespace Command
     /// This command changes the disk if specified, otherwise displays the list of all disks.
     /// </summary>
     [Verb("disk", HelpText = "cmdDisk", ResourceType = typeof(Localization))]
-    abstract class BaseDisk
+    abstract class BaseDisk : ICommand
     {
         [Option("disk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
         public string Disk { get; set; }
 
-        public void Execute()
+        public void Execute(Action afterError)
         {
-            Console.WriteLine((this as IQuite).Quite);
+            // TODO table with ID, name, space, type etc.
+
+            Console.WriteLine(Disk ?? "(null)");
+            foreach (var drive in DriveInfo.GetDrives())
+            {
+                Console.WriteLine(drive.DriveType.ToString());
+            }
         }
     }
     

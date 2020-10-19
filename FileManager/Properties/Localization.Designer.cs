@@ -70,7 +70,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disk to change..
+        ///   Looks up a localized string similar to Disk to set (either its ID or name)..
         /// </summary>
         public static string diskDisk {
             get {
@@ -79,7 +79,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suppresses summary message..
+        ///   Looks up a localized string similar to Suppresses summary message and stops executing after the command completes..
         /// </summary>
         public static string quiteQuite {
             get {
