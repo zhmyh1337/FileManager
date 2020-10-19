@@ -153,6 +153,9 @@
   <data name="cmdDir" xml:space="preserve">
     <value>This command scans directory for files and/or directories.</value>
   </data>
+  <data name="cmdPrint" xml:space="preserve">
+    <value>This command prints content of one (or more files) to console with default (or specified) encoding.</value>
+  </data>
   <data name="dirDir" xml:space="preserve">
     <value>Directory to scan (optional).</value>
   </data>
@@ -167,5 +170,14 @@
   </data>
   <data name="dirHideFiles" xml:space="preserve">
     <value>Hide files.</value>
+  </data>
+  <data name="eFileNotExists" xml:space="preserve">
+    <value>File "{0}" doesn't exist.</value>
+  </data>
+  <data name="printEnc" xml:space="preserve">
+    <value>Encoding (either Default, UTF8, ASCII or Unicode).</value>
+  </data>
+  <data name="printFiles" xml:space="preserve">
+    <value>Files to print.</value>
   </data>
 </root>

@@ -9,7 +9,7 @@ using System.Text;
 namespace Command
 {
     /// <summary>
-    /// This command scans directory for files and/or directories.
+    /// This command prints content of one (or more files) to console with default (or specified) encoding.
     /// </summary>
     [Verb("print", HelpText = "cmdPrint", ResourceType = typeof(Localization))]
     abstract class BasePrint : BaseCommand
@@ -19,14 +19,14 @@ namespace Command
             Default = 0,
             UTF8 = 1,
             ASCII = 2,
-            UNICODE = 3
+            Unicode = 3
         }
 
         [Option('e', "encoding", Default = EncodingTypes.Default, HelpText = "printEnc", ResourceType = typeof(Localization))]
-        public EncodingTypes Encoding { get; set; }
+        public EncodingTypes Encoding_ { get; set; }
 
-        [Value(0, MetaName = "dirs", HelpText = "printDirs", Required = true, ResourceType = typeof(Localization))]
-        public IEnumerable<string> Dirs { get; set; }
+        [Value(0, MetaName = "files", HelpText = "printFiles", Required = true, ResourceType = typeof(Localization))]
+        public IEnumerable<string> Files { get; set; }
 
         public override void Execute()
         {
@@ -34,7 +34,34 @@ namespace Command
 
             try
             {
-                
+                Encoding encoding = Encoding_ switch
+                {
+                    EncodingTypes.Default => Encoding.Default,
+                    EncodingTypes.UTF8 => Encoding.UTF8,
+                    EncodingTypes.ASCII => Encoding.ASCII,
+                    EncodingTypes.Unicode => Encoding.Unicode,
+                    _ => Encoding.Default,
+                };
+
+                foreach (var filePath in Files)
+                {
+                    if (!File.Exists(filePath))
+                    {
+                        throw new FileNotFoundException(string.Format(Localization.eFileNotExists, filePath));
+                    }
+                }
+
+                foreach (var filePath in Files)
+                {
+                    using (StreamReader reader = new StreamReader(filePath, encoding))
+                    {
+                        for (string s = reader.ReadLine(); s != null; s = reader.ReadLine())
+                        {
+                            Logger.Print(s);
+                        }
+                    }
+                    Logger.Print("");
+                }
             }
             catch (Exception e)
             {

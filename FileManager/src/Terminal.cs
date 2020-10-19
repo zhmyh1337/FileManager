@@ -193,6 +193,7 @@ namespace FileManager
             typeof(Command.QDisk),
             typeof(Command.QChangeDir),
             typeof(Command.QDir),
+            typeof(Command.QPrint),
         };
 
         /// <summary>
@@ -202,6 +203,7 @@ namespace FileManager
             typeof(Command.NDisk),
             typeof(Command.NChangeDir),
             typeof(Command.NDir),
+            typeof(Command.NPrint),
         };
 
         /// <summary>
@@ -212,6 +214,11 @@ namespace FileManager
         /// <summary>
         /// Working directory.
         /// </summary>
-        public static DirectoryInfo WorkingDir { get; set; } = new DirectoryInfo(Directory.GetCurrentDirectory());
+        public static DirectoryInfo WorkingDir
+        {
+            get { return workingDir; }
+            set { Directory.SetCurrentDirectory((workingDir = value).FullName); }
+        }
+        private static DirectoryInfo workingDir = new DirectoryInfo(Directory.GetCurrentDirectory());
     }
 }

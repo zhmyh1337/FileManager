@@ -97,6 +97,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command prints content of one (or more files) to console with default (or specified) encoding..
+        /// </summary>
+        public static string cmdPrint {
+            get {
+                return ResourceManager.GetString("cmdPrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To not see such messages, compile in release..
         /// </summary>
         public static string debuggerWarning {
@@ -196,11 +205,38 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File &quot;{0}&quot; doesn&apos;t exist..
+        /// </summary>
+        public static string eFileNotExists {
+            get {
+                return ResourceManager.GetString("eFileNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;--version&quot; option is invalid in this context..
         /// </summary>
         public static string eVersionAsOption {
             get {
                 return ResourceManager.GetString("eVersionAsOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Encoding (either Default, UTF8, ASCII or Unicode)..
+        /// </summary>
+        public static string printEnc {
+            get {
+                return ResourceManager.GetString("printEnc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files to print..
+        /// </summary>
+        public static string printFiles {
+            get {
+                return ResourceManager.GetString("printFiles", resourceCulture);
             }
         }
         
