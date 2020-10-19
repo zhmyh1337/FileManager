@@ -187,11 +187,11 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To not see such messages, compile in release..
+        ///   Looks up a localized string similar to DEBUG.
         /// </summary>
-        public static string debuggerWarning {
+        public static string debuggerDebug {
             get {
-                return ResourceManager.GetString("debuggerWarning", resourceCulture);
+                return ResourceManager.GetString("debuggerDebug", resourceCulture);
             }
         }
         
@@ -331,6 +331,24 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string loggerError {
+            get {
+                return ResourceManager.GetString("loggerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string loggerSuccess {
+            get {
+                return ResourceManager.GetString("loggerSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Move from file path..
         /// </summary>
         public static string moveFrom {
@@ -417,15 +435,6 @@ namespace FileManager.Properties {
         public static string quiteQuite {
             get {
                 return ResourceManager.GetString("quiteQuite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Operation completed successfully..
-        /// </summary>
-        public static string successfulOperation {
-            get {
-                return ResourceManager.GetString("successfulOperation", resourceCulture);
             }
         }
     }

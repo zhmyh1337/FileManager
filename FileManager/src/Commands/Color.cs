@@ -28,7 +28,7 @@ namespace Command
                     foreach (ConsoleColor color in Enum.GetValues(typeof(ConsoleColor)))
                     {
                         Console.ForegroundColor = color;
-                        Logger.Print("{0}. {1}", (int)color, color);
+                        Logger.PrintLine($"{(int)color}. {color}");
                     }
                     Console.ForegroundColor = wasClr;
                 }
@@ -37,7 +37,6 @@ namespace Command
                     if (Color < ConsoleColor.Black || Color > ConsoleColor.White)
                         throw new ArgumentException(string.Format(Localization.eColorBounds, Color));
                     Console.ForegroundColor = (ConsoleColor)Color;
-                    Logger.PrintSuccess();
                 }
             }
             catch (Exception e)

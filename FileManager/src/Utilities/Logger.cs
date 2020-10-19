@@ -9,22 +9,32 @@ namespace FileManager
     {
         public static void PrintSuccess(string message, params object[] args)
         {
-            Print("[Success] " + message, args);
+            PrintLine($"[{Localization.loggerSuccess}] {message}", args);
         }
 
         public static void PrintSuccess()
         {
-            Print(Localization.successfulOperation);
+            PrintLine($"{Localization.loggerSuccess}.");
         }
 
         public static void PrintError(string message, params object[] args)
         {
-            Print("[Error] " + message, args);
+            PrintLine($"[{Localization.loggerError}] {message}", args);
         }
 
-        public static void Print(string message, params object[] args)
+        public static void PrintError()
+        {
+            PrintLine($"{Localization.loggerError}.");
+        }
+
+        public static void PrintLine(string message, params object[] args)
         {
             Writer(string.Format(message, args));
+        }
+
+        public static void PrintLine()
+        {
+            PrintLine("");
         }
 
         public static Action<string> Writer { get; set; } = Console.WriteLine;

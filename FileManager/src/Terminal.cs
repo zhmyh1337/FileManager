@@ -28,8 +28,6 @@ namespace FileManager
             var parser = new Parser();
 
             WorkingCycle(args, launchingWithArgs, parser);
-
-
         }
 
         private static void WorkingCycle(string[] args, bool launchingWithArgs, Parser parser)
@@ -64,7 +62,7 @@ namespace FileManager
             cmd.Execute();
 
             // Adding empty line separator.
-            Logger.Print("");
+            Logger.PrintLine();
 
             // Exiting as -q (--quite) option is set.
             if (((Command.IQuite)cmd).Quite)

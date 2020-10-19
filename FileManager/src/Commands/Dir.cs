@@ -33,24 +33,24 @@ namespace Command
 
                 if (!HideFiles)
                 {
-                    Logger.Print(Localization.dirFiles);
+                    Logger.PrintLine(Localization.dirFiles);
                     var files = dir.GetFiles();
                     foreach (var file in files)
                     {
-                        Logger.Print("{0}", file.Name);
+                        Logger.PrintLine("{0}", file.Name);
                     }
 
                     if (!HideDirectories)
-                        Logger.Print("");
+                        Logger.PrintLine();
                 }
 
                 if (!HideDirectories)
                 {
-                    Logger.Print(Localization.dirDirectories);
+                    Logger.PrintLine(Localization.dirDirectories);
                     var directories = dir.GetDirectories();
                     foreach (var _dir in directories)
                     {
-                        Logger.Print("{0}", _dir.Name);
+                        Logger.PrintLine("{0}", _dir.Name);
                     }
                 }
             }

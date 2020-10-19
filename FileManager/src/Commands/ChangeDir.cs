@@ -24,7 +24,6 @@ namespace Command
             try
             {
                 Terminal.WorkingDir = ChangePath(Dir);
-                Logger.PrintSuccess();
             }
             catch (Exception e)
             {
@@ -45,9 +44,7 @@ namespace Command
             var testDirectory = new DirectoryInfo(testDirectoryStr);
 
             if (!testDirectory.Exists)
-            {
                 throw new DirectoryNotFoundException(Localization.eDirNotExists);
-            }
 
             return testDirectory;
         }

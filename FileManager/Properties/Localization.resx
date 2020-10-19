@@ -144,9 +144,6 @@
   <data name="cmdCd" xml:space="preserve">
     <value>This command changes the working directory.</value>
   </data>
-  <data name="debuggerWarning" xml:space="preserve">
-    <value>To not see such messages, compile in release.</value>
-  </data>
   <data name="eDirNotExists" xml:space="preserve">
     <value>This directory doesn't exist.</value>
   </data>
@@ -237,7 +234,13 @@
   <data name="newFileOverwrite" xml:space="preserve">
     <value>Whether to overwrite the file if it exists.</value>
   </data>
-  <data name="successfulOperation" xml:space="preserve">
-    <value>Operation completed successfully.</value>
+  <data name="debuggerDebug" xml:space="preserve">
+    <value>DEBUG</value>
+  </data>
+  <data name="loggerError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="loggerSuccess" xml:space="preserve">
+    <value>Success</value>
   </data>
 </root>

@@ -57,10 +57,10 @@ namespace Command
                     {
                         for (string s = reader.ReadLine(); s != null; s = reader.ReadLine())
                         {
-                            Logger.Print(s);
+                            Logger.PrintLine(s);
                         }
                     }
-                    Logger.Print("");
+                    Logger.PrintLine();
                 }
             }
             catch (Exception e)
