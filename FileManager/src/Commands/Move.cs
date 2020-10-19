@@ -44,12 +44,12 @@ namespace Command
         }
     }
 
-    class QMove : BaseCopy, IQuiteable
+    class QMove : BaseMove, IQuiteable
     {
         public bool Quite { get; set; }
     }
 
-    class NMove : BaseCopy, INotQuiteable
+    class NMove : BaseMove, INotQuiteable
     {
         public bool Quite { get => false; set => throw new NotImplementedException(); }
     }
