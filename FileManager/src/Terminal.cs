@@ -64,13 +64,7 @@ namespace FileManager
 
         private static void Execute(Command.ICommand cmd)
         {
-            //             CommandLine.Text.HelpText.AutoBuild
-            cmd.Execute(() =>
-            {
-                // Exiting as -q (--quite) option is set.
-                if (((Command.IQuite)cmd).Quite)
-                    Environment.Exit(1);
-            });
+            cmd.Execute();
 
             // Exiting as -q (--quite) option is set.
             if (((Command.IQuite)cmd).Quite)
@@ -179,7 +173,7 @@ namespace FileManager
                 // That's ok. Just continuing.
                 case NoVerbSelectedError _:
                     return;
-                case BadVerbSelectedError e:
+                case BadVerbSelectedError _:
                     break;
                 case HelpVerbRequestedError _:
                     Console.WriteLine(GenerateHelpHelpText());

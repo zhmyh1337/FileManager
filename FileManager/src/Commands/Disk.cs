@@ -12,13 +12,14 @@ namespace Command
     /// This command changes the disk if specified, otherwise displays the list of all disks.
     /// </summary>
     [Verb("disk", HelpText = "cmdDisk", ResourceType = typeof(Localization))]
-    abstract class BaseDisk : ICommand
+    abstract class BaseDisk : BaseCommand
     {
         [Value(0, MetaName = "disk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
         public string Disk { get; set; }
 
-        public void Execute(Action onError)
+        public override void Execute()
         {
+            base.Execute();
             // TODO table with ID, name, space, type etc.
             try
             {
@@ -62,6 +63,7 @@ namespace Command
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                OnError();
             }
         }
     }
