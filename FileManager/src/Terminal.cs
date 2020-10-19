@@ -21,6 +21,7 @@ namespace FileManager
             {
                 Console.WriteLine(HeadingInfo.Default);
                 Console.WriteLine(CopyrightInfo.Default);
+                Console.WriteLine("\"help\" for more info.");
                 Console.WriteLine();
             }
 
@@ -196,6 +197,8 @@ namespace FileManager
             typeof(Command.QPrint),
             typeof(Command.QCopy),
             typeof(Command.QMove),
+            typeof(Command.QDeleteFile),
+            typeof(Command.QNewFile),
         };
 
         /// <summary>
@@ -208,6 +211,8 @@ namespace FileManager
             typeof(Command.NPrint),
             typeof(Command.NCopy),
             typeof(Command.NMove),
+            typeof(Command.NDeleteFile),
+            typeof(Command.NNewFile),
         };
 
         /// <summary>

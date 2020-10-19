@@ -88,6 +88,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command deletes a file..
+        /// </summary>
+        public static string cmdDelFile {
+            get {
+                return ResourceManager.GetString("cmdDelFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command scans directory for files and/or directories..
         /// </summary>
         public static string cmdDir {
@@ -111,6 +120,15 @@ namespace FileManager.Properties {
         public static string cmdMove {
             get {
                 return ResourceManager.GetString("cmdMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This command creates a new file (and fills it with content in some encoding if specified)..
+        /// </summary>
+        public static string cmdNewFile {
+            get {
+                return ResourceManager.GetString("cmdNewFile", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace FileManager.Properties {
         public static string debuggerWarning {
             get {
                 return ResourceManager.GetString("debuggerWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File to delete..
+        /// </summary>
+        public static string delFileFile {
+            get {
+                return ResourceManager.GetString("delFileFile", resourceCulture);
             }
         }
         
@@ -300,6 +327,33 @@ namespace FileManager.Properties {
         public static string moveTo {
             get {
                 return ResourceManager.GetString("moveTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Encoding (either Default, UTF8, ASCII or Unicode)..
+        /// </summary>
+        public static string newFileEnc {
+            get {
+                return ResourceManager.GetString("newFileEnc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File to create..
+        /// </summary>
+        public static string newFileFile {
+            get {
+                return ResourceManager.GetString("newFileFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lines to write to a new file..
+        /// </summary>
+        public static string newFileLines {
+            get {
+                return ResourceManager.GetString("newFileLines", resourceCulture);
             }
         }
         
