@@ -23,21 +23,32 @@ namespace Command
             
             try
             {
-                var testDirectoryStr = Path.GetFullPath(Path.Combine(Terminal.WorkingDir.FullName, Dir.Trim()));
-                var testDirectory = new DirectoryInfo(testDirectoryStr);
-                Debugger.Print(testDirectoryStr);
-                if (!testDirectory.Exists)
-                {
-                    throw new ArgumentException(Localization.eCdNotExists);
-                }
-
-                Terminal.WorkingDir = testDirectory;
+                Terminal.WorkingDir = ChangePath(Dir);
             }
             catch (Exception e)
             {
                 Logger.PrintError(e.Message);
                 OnError();
             }
+        }
+
+        /// <summary>
+        /// Combines <see cref="Terminal.WorkingDir"/> with <paramref name="path"/>.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>The combined full path.</returns>
+        /// <exception cref="DirectoryNotFoundException">When the combined directory doesn't exist.</exception>
+        static public DirectoryInfo ChangePath(string path)
+        {
+            var testDirectoryStr = Path.GetFullPath(Path.Combine(Terminal.WorkingDir.FullName, path.Trim()));
+            var testDirectory = new DirectoryInfo(testDirectoryStr);
+
+            if (!testDirectory.Exists)
+            {
+                throw new DirectoryNotFoundException(Localization.eDirNotExists);
+            }
+
+            return testDirectory;
         }
     }
 

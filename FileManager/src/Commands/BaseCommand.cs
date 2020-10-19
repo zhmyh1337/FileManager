@@ -22,6 +22,9 @@ namespace Command
                 FileManager.Logger.Writer = x => { };
         }
 
+        /// <summary>
+        /// We call this from derived classes if an exception was caught.
+        /// </summary>
         public void OnError()
         {
             if (((Command.IQuite)this).Quite)

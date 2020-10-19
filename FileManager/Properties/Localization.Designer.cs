@@ -117,9 +117,9 @@ namespace FileManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to This directory doesn&apos;t exist..
         /// </summary>
-        public static string eCdNotExists {
+        public static string eDirNotExists {
             get {
-                return ResourceManager.GetString("eCdNotExists", resourceCulture);
+                return ResourceManager.GetString("eDirNotExists", resourceCulture);
             }
         }
         

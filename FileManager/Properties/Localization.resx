@@ -147,7 +147,7 @@
   <data name="debuggerWarning" xml:space="preserve">
     <value>To not see such messages, compile in release.</value>
   </data>
-  <data name="eCdNotExists" xml:space="preserve">
+  <data name="eDirNotExists" xml:space="preserve">
     <value>This directory doesn't exist.</value>
   </data>
 </root>
