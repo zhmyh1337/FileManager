@@ -8,6 +8,12 @@ using System.Text;
 
 namespace Command
 {
+    [Verb("tmp", HelpText = "tmp")]
+    class Tmp
+    {
+
+    }
+
     /// <summary>
     /// This command changes the disk if specified, otherwise displays the list of all disks.
     /// </summary>

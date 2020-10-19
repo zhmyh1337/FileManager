@@ -97,6 +97,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;--version&quot; option is invalid in this context..
+        /// </summary>
+        public static string eVersionAsOption {
+            get {
+                return ResourceManager.GetString("eVersionAsOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suppresses summary message and stops executing after the command completes..
         /// </summary>
         public static string quiteQuite {

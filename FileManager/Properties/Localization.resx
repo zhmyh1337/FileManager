@@ -132,4 +132,7 @@
   <data name="eDiskInvalidNumber" xml:space="preserve">
     <value>Unable to find the disk with number {0}.</value>
   </data>
+  <data name="eVersionAsOption" xml:space="preserve">
+    <value>"--version" option is invalid in this context.</value>
+  </data>
 </root>
