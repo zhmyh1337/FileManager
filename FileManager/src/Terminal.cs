@@ -20,6 +20,17 @@ namespace FileManager
             // This instance doesn't show this stuff for some reason.
             var noThrowParser = new Parser();
 
+            WorkingCycle(args, launchingWithArgs, defaultParser, noThrowParser);
+
+//             foreach (ConsoleColor color in Enum.GetValues(typeof(ConsoleColor)))
+//             {
+//                 Console.ForegroundColor = color;
+//                 Console.WriteLine($"Foreground color set to {color}");
+//             }
+        }
+
+        private static void WorkingCycle(string[] args, bool launchingWithArgs, Parser defaultParser, Parser noThrowParser)
+        {
             bool firstCommand = true;
 
             while (true)
@@ -27,8 +38,8 @@ namespace FileManager
                 if (launchingWithArgs && firstCommand)
                 {
                     noThrowParser.ParseArguments(args, quiteableCommands)
-                        .WithParsed(x => Execute((Command.ICommand)x))
-                        .WithNotParsed(x => Environment.Exit(1));
+                        .WithParsed<Command.ICommand>(Execute)
+                        .WithNotParsed(HandleErrorsArgsLaunching);
                 }
                 else
                 {
@@ -39,18 +50,12 @@ namespace FileManager
                     if (!string.IsNullOrWhiteSpace(readParameters))
                     {
                         defaultParser.ParseArguments(ArgsParser.SplitCommandLine(readParameters), notQuiteableCommands)
-                            .WithParsed(x => Execute((Command.ICommand)x))
-                            .WithNotParsed(x => HandleErrors(x));
+                            .WithParsed<Command.ICommand>(Execute)
+                            .WithNotParsed(HandleErrors);
                     }
                 }
                 firstCommand = false;
             }
-            
-//             foreach (ConsoleColor color in Enum.GetValues(typeof(ConsoleColor)))
-//             {
-//                 Console.ForegroundColor = color;
-//                 Console.WriteLine($"Foreground color set to {color}");
-//             }
         }
 
         private static void Execute(Command.ICommand cmd)
@@ -67,6 +72,11 @@ namespace FileManager
         }
 
         private static void HandleErrors(IEnumerable<Error> errors)
+        {
+
+        }
+
+        private static void HandleErrorsArgsLaunching(IEnumerable<Error> errors)
         {
 
         }
