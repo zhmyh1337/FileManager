@@ -30,7 +30,7 @@ namespace Command
                     int id = 1;
                     foreach (var drive in allDrives)
                     {
-                        Console.WriteLine($"{id++}) {drive.Name}");
+                        Logger.Print($"{id++}) {drive.Name}");
                     }
                 }
                 else
@@ -62,7 +62,7 @@ namespace Command
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Logger.PrintError(e.Message);
                 OnError();
             }
         }

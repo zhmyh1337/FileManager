@@ -8,12 +8,17 @@ namespace FileManager
     {
         public static void PrintSuccess(string message, params object[] args)
         {
-            Writer(string.Format("[Success] " + message, args));
+            Print("[Success] " + message, args);
         }
 
         public static void PrintError(string message, params object[] args)
         {
-            Writer(string.Format("[Error] " + message, args));
+            Print("[Error] " + message, args);
+        }
+
+        public static void Print(string message, params object[] args)
+        {
+            Writer(string.Format(message, args));
         }
 
         public static Action<string> Writer { get; set; } = Console.WriteLine;
