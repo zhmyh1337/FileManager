@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace FileManager
 {
-    class FileManager
+    class Terminal
     {
         static void Main(string[] args)
         {
@@ -26,7 +26,7 @@ namespace FileManager
                 }
                 else
                 {
-                    Console.Write("{0}> ", workingDir);
+                    Console.Write("{0}> ", WorkingDir);
                     string readParameters = Console.ReadLine();
 
                     // Skip if no not white characters in string.
@@ -82,6 +82,6 @@ namespace FileManager
         /// <summary>
         /// Working directory.
         /// </summary>
-        public static DirectoryInfo workingDir = new DirectoryInfo(Directory.GetCurrentDirectory());
+        public static DirectoryInfo WorkingDir { get; set; } = new DirectoryInfo(Directory.GetCurrentDirectory());
     }
 }

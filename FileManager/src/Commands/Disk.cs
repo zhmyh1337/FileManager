@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using FileManager;
 using FileManager.Properties;
 using System;
 using System.Collections.Generic;
@@ -41,19 +42,17 @@ namespace Command
                         }
                         else
                         {
-                            FileManager.FileManager.workingDir = allDrives[id - 1].RootDirectory;
+                            Terminal.WorkingDir = allDrives[id - 1].RootDirectory;
                         }
                     }
                     else
                     {
                         var found = Array.Find(allDrives, x => x.Name == Disk);
                         if (found == null)
-                        {
                             throw new ArgumentException("Todo2");
-                        }
                         else
                         {
-                            FileManager.FileManager.workingDir = found.RootDirectory;
+                            Terminal.WorkingDir = found.RootDirectory;
                         }
                     }
                 }
@@ -64,7 +63,7 @@ namespace Command
             }
         }
     }
-    
+
     class QDisk : BaseDisk, IQuiteable
     {
         public bool Quite { get; set; }
