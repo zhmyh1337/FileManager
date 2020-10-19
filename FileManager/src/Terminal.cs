@@ -24,14 +24,6 @@ namespace FileManager
                 Console.WriteLine();
             }
 
-            // This parser instance shows auto generated error
-            // and version messages when parsing error occurs.
-            // Btw I can disable autoversion, though I don't want to.
-            var defaultParser = Parser.Default;
-            // This instance doesn't show this stuff for some reason.
-            // To show help/version when --help/--version is specified,
-            // we will generate HelpText manually but only when the error
-            // is caused by --help/--version options.
             var parser = new Parser();
 
             WorkingCycle(args, launchingWithArgs, parser);
@@ -119,62 +111,82 @@ namespace FileManager
             }
         );
 
+        /// <summary>
+        /// This parser is when launching w/o args or it's not the first command.
+        /// </summary>
+        /// <param name="errors"></param>
         private static void HandleErrors(IEnumerable<Error> errors)
         {
             // Checking whether a verb was specified.
             // We need this because "version" and "cmd --version"
             // throw the same error and we want to differentiate it.
             bool verbSpecified = lastParserResult.TypeInfo.Current != typeof(NullInstance);
-            
+
             switch (errors?.FirstOrDefault())
             {
-                case VersionRequestedError e:
+                case VersionRequestedError _:
                     if (verbSpecified)
                     {
-                        Console.WriteLine(Localization.eVersionAsOption);
+                        Logger.PrintError(Localization.eVersionAsOption);
                     }
                     else
                     {
                         Console.WriteLine(HeadingInfo.Default);
                     }
-                    break;
+                    return;
                 // That's ok. Just continuing.
-                case NoVerbSelectedError e:
-                    break;
+                case NoVerbSelectedError _:
+                    return;
                 case BadVerbSelectedError e:
-                    Console.WriteLine(string.Format(Localization.eBadCommand, e.Token));
-                    break;
-                default:
+                    Logger.PrintError(Localization.eBadCommand, e.Token);
+                    return;
+                case HelpVerbRequestedError _:
+                    Console.WriteLine(GenerateHelpHelpText());
+                    return;
+                case Error e:
                     if (verbSpecified)
                     {
                         Console.WriteLine(GenerateVerbHelpText());
                     }
                     else
                     {
-                        Console.WriteLine(GenerateHelpHelpText());
+                        Logger.PrintError(e.Tag.ToString());
                     }
-                    break;
+                    return;
             }
         }
 
+        /// <summary>
+        /// This parser is when launching w/ args and it's the first command.
+        /// </summary>
+        /// <param name="errors"></param>
         private static void HandleErrorsArgsLaunching(IEnumerable<Error> errors)
         {
-            HandleErrors(errors);
-            return;
-            Console.WriteLine($"{lastParserResult.TypeInfo.Current.Name}");
-//             Console.WriteLine(lastParserResult.TypeInfo.C);
-            Console.WriteLine(HelpText.AutoBuild(lastParserResult, e =>
+            // Checking whether a verb was specified.
+            // We need this because "version" and "cmd --version"
+            // throw the same error and we want to differentiate it.
+            bool verbSpecified = lastParserResult.TypeInfo.Current != typeof(NullInstance);
+
+            switch (errors?.FirstOrDefault())
             {
-                e.AutoHelp = true;
-                e.AutoVersion = false;
-                return HelpText.DefaultParsingErrorsHandler(lastParserResult, e);
-            }, ex => ex));
-            return;
-            Console.WriteLine(HelpText.AutoBuild(lastParserResult, e => e, ex => ex));
-//             ErrorType.
-            if (!errors.All(e => e.Tag == ErrorType.HelpRequestedError ||
-                e.Tag == ErrorType.VersionRequestedError))
-                Environment.Exit(1);
+                case VersionRequestedError _:
+                    if (!verbSpecified)
+                    {
+                        Console.WriteLine(HeadingInfo.Default);
+                        return;
+                    }
+                    break;
+                // That's ok. Just continuing.
+                case NoVerbSelectedError _:
+                    return;
+                case BadVerbSelectedError e:
+                    break;
+                case HelpVerbRequestedError _:
+                    Console.WriteLine(GenerateHelpHelpText());
+                    return;
+            }
+
+            Environment.Exit(1);
         }
 
         /// <summary>

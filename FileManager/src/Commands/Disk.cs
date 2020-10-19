@@ -14,7 +14,7 @@ namespace Command
     [Verb("disk", HelpText = "cmdDisk", ResourceType = typeof(Localization))]
     abstract class BaseDisk : ICommand
     {
-        [Value(0, MetaName = "diskDisk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
+        [Value(0, MetaName = "disk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
         public string Disk { get; set; }
 
         public void Execute(Action onError)

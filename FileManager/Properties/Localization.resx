@@ -136,6 +136,6 @@
     <value>"--version" option is invalid in this context.</value>
   </data>
   <data name="eBadCommand" xml:space="preserve">
-    <value>Command "{0}" is not recognized.</value>
+    <value>Command "{0}" is not recognized. Use "help" command.</value>
   </data>
 </root>

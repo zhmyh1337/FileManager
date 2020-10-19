@@ -79,7 +79,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Command &quot;{0}&quot; is not recognized..
+        ///   Looks up a localized string similar to Command &quot;{0}&quot; is not recognized. Use &quot;help&quot; command..
         /// </summary>
         public static string eBadCommand {
             get {
