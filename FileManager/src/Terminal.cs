@@ -13,14 +13,20 @@ namespace FileManager
         static void Main(string[] args)
         {
             bool launchingWithArgs = args.Length != 0;
-            var parser = Parser.Default;
+
+            // This parser instance shows auto generated error and version message on error.
+            // Btw I can disable autoversion, though I don't want to.
+            var defaultParser = Parser.Default;
+            // This instance doesn't show this stuff for some reason.
+            var noThrowParser = new Parser();
+
             bool firstCommand = true;
 
             while (true)
             {
                 if (launchingWithArgs && firstCommand)
                 {
-                    parser.ParseArguments(args, quiteableCommands)
+                    noThrowParser.ParseArguments(args, quiteableCommands)
                         .WithParsed(x => Execute((Command.ICommand)x))
                         .WithNotParsed(x => Environment.Exit(1));
                 }
@@ -32,7 +38,7 @@ namespace FileManager
                     // Skip if no not white characters in string.
                     if (!string.IsNullOrWhiteSpace(readParameters))
                     {
-                        parser.ParseArguments(ArgsParser.SplitCommandLine(readParameters), notQuiteableCommands)
+                        defaultParser.ParseArguments(ArgsParser.SplitCommandLine(readParameters), notQuiteableCommands)
                             .WithParsed(x => Execute((Command.ICommand)x))
                             .WithNotParsed(x => HandleErrors(x));
                     }

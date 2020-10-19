@@ -14,7 +14,7 @@ namespace Command
     [Verb("disk", HelpText = "cmdDisk", ResourceType = typeof(Localization))]
     abstract class BaseDisk : ICommand
     {
-        [Option("disk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
+        [Value(0, MetaName = "diskDisk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
         public string Disk { get; set; }
 
         public void Execute(Action onError)
@@ -38,7 +38,7 @@ namespace Command
                     {
                         if (id < 1 || id > allDrives.Length)
                         {
-                            throw new ArgumentException("Todo1");
+                            throw new ArgumentException(string.Format(Localization.eDiskInvalidNumber, id));
                         }
                         else
                         {
@@ -49,7 +49,9 @@ namespace Command
                     {
                         var found = Array.Find(allDrives, x => x.Name == Disk);
                         if (found == null)
-                            throw new ArgumentException("Todo2");
+                        {
+                            throw new ArgumentException(string.Format(Localization.eDiskInvalidName, Disk));
+                        }
                         else
                         {
                             Terminal.WorkingDir = found.RootDirectory;

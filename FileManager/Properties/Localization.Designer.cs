@@ -79,6 +79,24 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to find the disk with name &quot;{0}&quot;..
+        /// </summary>
+        public static string eDiskInvalidName {
+            get {
+                return ResourceManager.GetString("eDiskInvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find the disk with number {0}..
+        /// </summary>
+        public static string eDiskInvalidNumber {
+            get {
+                return ResourceManager.GetString("eDiskInvalidNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suppresses summary message and stops executing after the command completes..
         /// </summary>
         public static string quiteQuite {

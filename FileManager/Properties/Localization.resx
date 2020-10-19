@@ -126,4 +126,10 @@
   <data name="diskDisk" xml:space="preserve">
     <value>Disk to set (either its ID or name).</value>
   </data>
+  <data name="eDiskInvalidName" xml:space="preserve">
+    <value>Unable to find the disk with name "{0}".</value>
+  </data>
+  <data name="eDiskInvalidNumber" xml:space="preserve">
+    <value>Unable to find the disk with number {0}.</value>
+  </data>
 </root>
