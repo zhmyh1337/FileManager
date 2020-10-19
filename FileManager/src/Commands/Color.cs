@@ -38,6 +38,7 @@ namespace Command
                         throw new ArgumentException(string.Format(Localization.eColorBounds, Color));
                     Console.ForegroundColor = (ConsoleColor)Color;
                 }
+                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileManager.Properties;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +10,11 @@ namespace FileManager
         public static void PrintSuccess(string message, params object[] args)
         {
             Print("[Success] " + message, args);
+        }
+
+        public static void PrintSuccess()
+        {
+            Print(Localization.successfulOperation);
         }
 
         public static void PrintError(string message, params object[] args)

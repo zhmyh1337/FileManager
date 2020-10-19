@@ -24,6 +24,7 @@ namespace Command
             try
             {
                 Terminal.WorkingDir = ChangePath(Dir);
+                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

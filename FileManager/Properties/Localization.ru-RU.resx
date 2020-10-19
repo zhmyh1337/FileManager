@@ -123,4 +123,7 @@
   <data name="debuggerWarning" xml:space="preserve">
     <value>Чтобы не видеть таких сообщений, компилируйте в релизе.</value>
   </data>
+  <data name="successfulOperation" xml:space="preserve">
+    <value>Операция выполнена успешно.</value>
+  </data>
 </root>

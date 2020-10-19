@@ -27,6 +27,7 @@ namespace Command
                     throw new FileNotFoundException(string.Format(Localization.eFileNotExists, FilePath));
 
                 File.Delete(FilePath);
+                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

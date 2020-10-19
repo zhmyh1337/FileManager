@@ -61,6 +61,7 @@ namespace Command
                         writer.WriteLine(line);
                     }
                 }
+                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

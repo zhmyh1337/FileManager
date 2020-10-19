@@ -419,5 +419,14 @@ namespace FileManager.Properties {
                 return ResourceManager.GetString("quiteQuite", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation completed successfully..
+        /// </summary>
+        public static string successfulOperation {
+            get {
+                return ResourceManager.GetString("successfulOperation", resourceCulture);
+            }
+        }
     }
 }

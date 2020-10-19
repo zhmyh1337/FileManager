@@ -60,6 +60,7 @@ namespace Command
                         }
                     }
                 }
+                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

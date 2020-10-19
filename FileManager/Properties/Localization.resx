@@ -237,4 +237,7 @@
   <data name="newFileOverwrite" xml:space="preserve">
     <value>Whether to overwrite the file if it exists.</value>
   </data>
+  <data name="successfulOperation" xml:space="preserve">
+    <value>Operation completed successfully.</value>
+  </data>
 </root>

@@ -35,6 +35,7 @@ namespace Command
                     throw new ArgumentException(string.Format(Localization.eFileExists, To));
 
                 File.Move(From, To, Overwrite);
+                Logger.PrintSuccess();
             }
             catch (Exception e)
             {
