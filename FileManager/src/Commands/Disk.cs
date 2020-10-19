@@ -48,7 +48,8 @@ namespace Command
                     }
                     else
                     {
-                        var found = Array.Find(allDrives, x => x.Name == Disk);
+                        // Not case sensitive.
+                        var found = Array.Find(allDrives, x => x.Name.ToLower() == Disk.ToLower());
                         if (found == null)
                         {
                             throw new ArgumentException(string.Format(Localization.eDiskInvalidName, Disk));

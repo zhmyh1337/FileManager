@@ -66,6 +66,9 @@ namespace FileManager
         {
             cmd.Execute();
 
+            // Adding empty line separator.
+            Logger.Print("");
+
             // Exiting as -q (--quite) option is set.
             if (((Command.IQuite)cmd).Quite)
                 Environment.Exit(0);
@@ -188,6 +191,7 @@ namespace FileManager
         /// </summary>
         private static readonly Type[] quiteableCommands = new Type[] {
             typeof(Command.QDisk),
+            typeof(Command.QChangeDir),
         };
 
         /// <summary>
@@ -195,6 +199,7 @@ namespace FileManager
         /// </summary>
         private static readonly Type[] notQuiteableCommands = new Type[] {
             typeof(Command.NDisk),
+            typeof(Command.NChangeDir),
         };
 
         /// <summary>

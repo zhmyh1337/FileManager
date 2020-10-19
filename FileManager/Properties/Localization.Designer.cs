@@ -61,11 +61,38 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Directory to change..
+        /// </summary>
+        public static string cdDir {
+            get {
+                return ResourceManager.GetString("cdDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This command changes the working directory..
+        /// </summary>
+        public static string cmdCd {
+            get {
+                return ResourceManager.GetString("cmdCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command changes the disk if specified, otherwise displays the list of all disks..
         /// </summary>
         public static string cmdDisk {
             get {
                 return ResourceManager.GetString("cmdDisk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To not see such messages, compile in release..
+        /// </summary>
+        public static string debuggerWarning {
+            get {
+                return ResourceManager.GetString("debuggerWarning", resourceCulture);
             }
         }
         
@@ -84,6 +111,15 @@ namespace FileManager.Properties {
         public static string eBadCommand {
             get {
                 return ResourceManager.GetString("eBadCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This directory doesn&apos;t exist..
+        /// </summary>
+        public static string eCdNotExists {
+            get {
+                return ResourceManager.GetString("eCdNotExists", resourceCulture);
             }
         }
         

@@ -120,4 +120,7 @@
   <data name="cmdDisk" xml:space="preserve">
     <value>Эта команда изменяет диск, если он указан, в противном случае отображает список всех дисков.</value>
   </data>
+  <data name="debuggerWarning" xml:space="preserve">
+    <value>Чтобы не видеть таких сообщений, компилируйте в релизе.</value>
+  </data>
 </root>

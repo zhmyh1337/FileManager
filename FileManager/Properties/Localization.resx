@@ -138,4 +138,16 @@
   <data name="eBadCommand" xml:space="preserve">
     <value>Command "{0}" is not recognized. Use "help" command.</value>
   </data>
+  <data name="cdDir" xml:space="preserve">
+    <value>Directory to change.</value>
+  </data>
+  <data name="cmdCd" xml:space="preserve">
+    <value>This command changes the working directory.</value>
+  </data>
+  <data name="debuggerWarning" xml:space="preserve">
+    <value>To not see such messages, compile in release.</value>
+  </data>
+  <data name="eCdNotExists" xml:space="preserve">
+    <value>This directory doesn't exist.</value>
+  </data>
 </root>
