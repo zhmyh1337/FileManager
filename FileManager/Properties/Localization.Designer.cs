@@ -79,6 +79,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command copies file from one place to another (and overwrites the old file it if specified)..
+        /// </summary>
+        public static string cmdCopy {
+            get {
+                return ResourceManager.GetString("cmdCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command scans directory for files and/or directories..
         /// </summary>
         public static string cmdDir {
@@ -97,11 +106,47 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command moves file from one place to another (and overwrites the old file it if specified)..
+        /// </summary>
+        public static string cmdMove {
+            get {
+                return ResourceManager.GetString("cmdMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command prints content of one (or more files) to console with default (or specified) encoding..
         /// </summary>
         public static string cmdPrint {
             get {
                 return ResourceManager.GetString("cmdPrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy from file path..
+        /// </summary>
+        public static string copyFrom {
+            get {
+                return ResourceManager.GetString("copyFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether to overwrite the file..
+        /// </summary>
+        public static string copyOverwrite {
+            get {
+                return ResourceManager.GetString("copyOverwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy to file path..
+        /// </summary>
+        public static string copyTo {
+            get {
+                return ResourceManager.GetString("copyTo", resourceCulture);
             }
         }
         
@@ -205,6 +250,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File &quot;{0}&quot; exists..
+        /// </summary>
+        public static string eFileExists {
+            get {
+                return ResourceManager.GetString("eFileExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File &quot;{0}&quot; doesn&apos;t exist..
         /// </summary>
         public static string eFileNotExists {
@@ -219,6 +273,33 @@ namespace FileManager.Properties {
         public static string eVersionAsOption {
             get {
                 return ResourceManager.GetString("eVersionAsOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move from file path..
+        /// </summary>
+        public static string moveFrom {
+            get {
+                return ResourceManager.GetString("moveFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether to overwrite the file..
+        /// </summary>
+        public static string moveOverwrite {
+            get {
+                return ResourceManager.GetString("moveOverwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move to file path..
+        /// </summary>
+        public static string moveTo {
+            get {
+                return ResourceManager.GetString("moveTo", resourceCulture);
             }
         }
         

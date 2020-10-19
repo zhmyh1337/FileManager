@@ -194,6 +194,8 @@ namespace FileManager
             typeof(Command.QChangeDir),
             typeof(Command.QDir),
             typeof(Command.QPrint),
+            typeof(Command.QCopy),
+            typeof(Command.QMove),
         };
 
         /// <summary>
@@ -204,6 +206,8 @@ namespace FileManager
             typeof(Command.NChangeDir),
             typeof(Command.NDir),
             typeof(Command.NPrint),
+            typeof(Command.NCopy),
+            typeof(Command.NMove),
         };
 
         /// <summary>
