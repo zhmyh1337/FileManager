@@ -7,12 +7,17 @@ namespace FileManager
 {
     static class Debugger
     {
-        public static void PrintLine(string message, params object[] args)
+        public static void PrintLine(string message)
         {
             var wasClr = Console.ForegroundColor;
             Console.ForegroundColor = debuggerColor;
-            Console.WriteLine(string.Format($"[{Localization.debuggerDebug}] {message}", args));
+            Console.WriteLine(message);
             Console.ForegroundColor = wasClr;
+        }
+
+        public static void PrintLine(string message, params object[] args)
+        {
+            PrintLine(string.Format($"[{Localization.debuggerDebug}] {message}", args));
         }
 
         private const ConsoleColor debuggerColor = ConsoleColor.Red;

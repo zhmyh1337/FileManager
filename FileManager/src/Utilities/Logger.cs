@@ -27,9 +27,14 @@ namespace FileManager
             PrintLine($"{Localization.loggerError}.");
         }
 
+        public static void PrintLine(string message)
+        {
+            Writer(message);
+        }
+
         public static void PrintLine(string message, params object[] args)
         {
-            Writer(string.Format(message, args));
+            PrintLine(string.Format(message, args));
         }
 
         public static void PrintLine()
