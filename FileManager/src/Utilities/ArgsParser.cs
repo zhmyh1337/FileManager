@@ -15,6 +15,9 @@ namespace FileManager
     {
         public static IEnumerable<string> SplitCommandLine(string commandLine)
         {
+            if (commandLine == null)
+                throw new ArgumentNullException();
+
             bool inQuotes = false;
             bool isEscaping = false;
 

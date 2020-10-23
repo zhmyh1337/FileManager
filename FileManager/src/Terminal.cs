@@ -48,7 +48,7 @@ namespace FileManager
                     Console.Write("{0}> ", WorkingDir);
                     string readParameters = Console.ReadLine();
 
-                    lastParserResult = parser.ParseArguments(ArgsParser.SplitCommandLine(readParameters), notQuiteableCommands);
+                    lastParserResult = parser.ParseArguments(ArgsParser.SplitCommandLine(readParameters ?? string.Empty), notQuiteableCommands);
                     lastParserResult
                         .WithParsed<Command.ICommand>(Execute)
                         .WithNotParsed(HandleErrors);
