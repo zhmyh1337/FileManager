@@ -39,7 +39,7 @@ namespace Command
                     {
                         if (id < 1 || id > allDrives.Length)
                         {
-                            throw new ArgumentException(string.Format(Localization.eDiskInvalidNumber, id));
+                            throw new ArgumentException(string.Format(Localization.errDiskInvalidNumber, id));
                         }
                         else
                         {
@@ -52,7 +52,7 @@ namespace Command
                         var found = Array.Find(allDrives, x => x.Name.ToLower() == Disk.ToLower());
                         if (found == null)
                         {
-                            throw new ArgumentException(string.Format(Localization.eDiskInvalidName, Disk));
+                            throw new ArgumentException(string.Format(Localization.errDiskInvalidName, Disk));
                         }
                         else
                         {

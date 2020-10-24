@@ -17,7 +17,7 @@ namespace FileManager
 
         public static void PrintLine(string message, params object[] args)
         {
-            PrintLine(string.Format($"[{Localization.debuggerDebug}] {message}", args));
+            PrintLine(string.Format($"{Localization.debuggerPrefix} {message}", args));
         }
 
         private const ConsoleColor debuggerColor = ConsoleColor.Red;

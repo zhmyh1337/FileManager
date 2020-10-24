@@ -9,22 +9,12 @@ namespace FileManager
     {
         public static void PrintSuccess(string message, params object[] args)
         {
-            PrintLine($"[{Localization.loggerSuccess}] {message}", args);
-        }
-
-        public static void PrintSuccess()
-        {
-            PrintLine($"{Localization.loggerSuccess}.");
+            PrintLine($"{Localization.loggerSuccessPrefix} {message}", args);
         }
 
         public static void PrintError(string message, params object[] args)
         {
-            PrintLine($"[{Localization.loggerError}] {message}", args);
-        }
-
-        public static void PrintError()
-        {
-            PrintLine($"{Localization.loggerError}.");
+            PrintLine($"{Localization.loggerErrorPrefix} {message}", args);
         }
 
         public static void PrintLine(string message)

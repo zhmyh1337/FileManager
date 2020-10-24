@@ -50,7 +50,7 @@ namespace Command
                 };
 
                 if (!Overwrite && File.Exists(FilePath))
-                    throw new ArgumentException(string.Format(Localization.eFileExists, FilePath));
+                    throw new ArgumentException(string.Format(Localization.errCommonFileExists, FilePath));
 
                 using (StreamWriter writer = new StreamWriter(FilePath, false, encoding))
                 {
@@ -59,7 +59,6 @@ namespace Command
                         writer.WriteLine(line);
                     }
                 }
-                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

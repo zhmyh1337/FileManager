@@ -24,10 +24,9 @@ namespace Command
             try
             {
                 if (!File.Exists(FilePath))
-                    throw new FileNotFoundException(string.Format(Localization.eFileNotExists, FilePath));
+                    throw new FileNotFoundException(string.Format(Localization.errCommonFileNotExists, FilePath));
 
                 File.Delete(FilePath);
-                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

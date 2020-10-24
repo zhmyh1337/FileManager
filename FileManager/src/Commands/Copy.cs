@@ -30,12 +30,11 @@ namespace Command
             try
             {
                 if (!File.Exists(From))
-                    throw new FileNotFoundException(string.Format(Localization.eFileNotExists, From));
+                    throw new FileNotFoundException(string.Format(Localization.errCommonFileNotExists, From));
                 if (!Overwrite && File.Exists(To))
-                    throw new ArgumentException(string.Format(Localization.eFileExists, To));
+                    throw new ArgumentException(string.Format(Localization.errCommonFileExists, To));
 
                 File.Copy(From, To, Overwrite);
-                Logger.PrintSuccess();
             }
             catch (Exception e)
             {

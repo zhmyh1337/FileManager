@@ -35,7 +35,7 @@ namespace Command
                 else
                 {
                     if (Color < ConsoleColor.Black || Color > ConsoleColor.White)
-                        throw new ArgumentException(string.Format(Localization.eColorBounds, Color));
+                        throw new ArgumentException(string.Format(Localization.errColorBounds, Color));
                     Console.ForegroundColor = (ConsoleColor)Color;
                 }
             }

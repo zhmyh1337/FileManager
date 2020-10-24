@@ -126,16 +126,16 @@
   <data name="diskDisk" xml:space="preserve">
     <value>Disk to set (either its ID or name).</value>
   </data>
-  <data name="eDiskInvalidName" xml:space="preserve">
+  <data name="errDiskInvalidName" xml:space="preserve">
     <value>Unable to find the disk with name "{0}".</value>
   </data>
-  <data name="eDiskInvalidNumber" xml:space="preserve">
+  <data name="errDiskInvalidNumber" xml:space="preserve">
     <value>Unable to find the disk with number {0}.</value>
   </data>
-  <data name="eVersionAsOption" xml:space="preserve">
+  <data name="errTerminalVersionAsOption" xml:space="preserve">
     <value>"--version" option is invalid in this context.</value>
   </data>
-  <data name="eBadCommand" xml:space="preserve">
+  <data name="errTerminalBadCommand" xml:space="preserve">
     <value>Command "{0}" is not recognized. Use "help" command.</value>
   </data>
   <data name="cdDir" xml:space="preserve">
@@ -144,7 +144,7 @@
   <data name="cmdCd" xml:space="preserve">
     <value>This command changes the working directory.</value>
   </data>
-  <data name="eDirNotExists" xml:space="preserve">
+  <data name="errCommonDirNotExists" xml:space="preserve">
     <value>This directory doesn't exist.</value>
   </data>
   <data name="cmdDir" xml:space="preserve">
@@ -168,11 +168,8 @@
   <data name="dirHideFiles" xml:space="preserve">
     <value>Hide files.</value>
   </data>
-  <data name="eFileNotExists" xml:space="preserve">
+  <data name="errCommonFileNotExists" xml:space="preserve">
     <value>File "{0}" doesn't exist.</value>
-  </data>
-  <data name="printEnc" xml:space="preserve">
-    <value>Encoding (either Default, UTF8, ASCII or Unicode).</value>
   </data>
   <data name="printFiles" xml:space="preserve">
     <value>Files to print.</value>
@@ -198,7 +195,7 @@
   <data name="copyFrom" xml:space="preserve">
     <value>Copy from file path.</value>
   </data>
-  <data name="copyOverwrite" xml:space="preserve">
+  <data name="commonFileOverwrite" xml:space="preserve">
     <value>Whether to overwrite the file.</value>
   </data>
   <data name="copyTo" xml:space="preserve">
@@ -207,22 +204,19 @@
   <data name="delFileFile" xml:space="preserve">
     <value>File to delete.</value>
   </data>
-  <data name="eColorBounds" xml:space="preserve">
+  <data name="errColorBounds" xml:space="preserve">
     <value>Color {0} is out of bounds.</value>
   </data>
-  <data name="eFileExists" xml:space="preserve">
+  <data name="errCommonFileExists" xml:space="preserve">
     <value>File "{0}" exists.</value>
   </data>
   <data name="moveFrom" xml:space="preserve">
     <value>Move from file path.</value>
   </data>
-  <data name="moveOverwrite" xml:space="preserve">
-    <value>Whether to overwrite the file.</value>
-  </data>
   <data name="moveTo" xml:space="preserve">
     <value>Move to file path.</value>
   </data>
-  <data name="newFileEnc" xml:space="preserve">
+  <data name="commonEncoding" xml:space="preserve">
     <value>Encoding (either Default, UTF8, ASCII or Unicode).</value>
   </data>
   <data name="newFileFile" xml:space="preserve">
@@ -234,13 +228,13 @@
   <data name="newFileOverwrite" xml:space="preserve">
     <value>Whether to overwrite the file if it exists.</value>
   </data>
-  <data name="debuggerDebug" xml:space="preserve">
-    <value>DEBUG</value>
+  <data name="debuggerPrefix" xml:space="preserve">
+    <value>[DEBUG]</value>
   </data>
-  <data name="loggerError" xml:space="preserve">
-    <value>Error</value>
+  <data name="loggerErrorPrefix" xml:space="preserve">
+    <value>[ERROR]</value>
   </data>
-  <data name="loggerSuccess" xml:space="preserve">
-    <value>Success</value>
+  <data name="loggerSuccessPrefix" xml:space="preserve">
+    <value>[SUCCESS]</value>
   </data>
 </root>

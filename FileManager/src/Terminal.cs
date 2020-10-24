@@ -119,7 +119,7 @@ namespace FileManager
                 case VersionRequestedError _:
                     if (verbSpecified)
                     {
-                        Logger.PrintError(Localization.eVersionAsOption);
+                        Logger.PrintError(Localization.errTerminalVersionAsOption);
                     }
                     else
                     {
@@ -130,7 +130,7 @@ namespace FileManager
                 case NoVerbSelectedError _:
                     return;
                 case BadVerbSelectedError e:
-                    Logger.PrintError(Localization.eBadCommand, e.Token);
+                    Logger.PrintError(Localization.errTerminalBadCommand, e.Token);
                     return;
                 case HelpVerbRequestedError _:
                     Console.WriteLine(GenerateHelpHelpText());

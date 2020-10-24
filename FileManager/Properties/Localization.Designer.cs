@@ -160,20 +160,29 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copy from file path..
+        ///   Looks up a localized string similar to Encoding (either Default, UTF8, ASCII or Unicode)..
         /// </summary>
-        public static string copyFrom {
+        public static string commonEncoding {
             get {
-                return ResourceManager.GetString("copyFrom", resourceCulture);
+                return ResourceManager.GetString("commonEncoding", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Whether to overwrite the file..
         /// </summary>
-        public static string copyOverwrite {
+        public static string commonFileOverwrite {
             get {
-                return ResourceManager.GetString("copyOverwrite", resourceCulture);
+                return ResourceManager.GetString("commonFileOverwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy from file path..
+        /// </summary>
+        public static string copyFrom {
+            get {
+                return ResourceManager.GetString("copyFrom", resourceCulture);
             }
         }
         
@@ -187,11 +196,11 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DEBUG.
+        ///   Looks up a localized string similar to [DEBUG].
         /// </summary>
-        public static string debuggerDebug {
+        public static string debuggerPrefix {
             get {
-                return ResourceManager.GetString("debuggerDebug", resourceCulture);
+                return ResourceManager.GetString("debuggerPrefix", resourceCulture);
             }
         }
         
@@ -259,92 +268,92 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Command &quot;{0}&quot; is not recognized. Use &quot;help&quot; command..
-        /// </summary>
-        public static string eBadCommand {
-            get {
-                return ResourceManager.GetString("eBadCommand", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Color {0} is out of bounds..
         /// </summary>
-        public static string eColorBounds {
+        public static string errColorBounds {
             get {
-                return ResourceManager.GetString("eColorBounds", resourceCulture);
+                return ResourceManager.GetString("errColorBounds", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to This directory doesn&apos;t exist..
         /// </summary>
-        public static string eDirNotExists {
+        public static string errCommonDirNotExists {
             get {
-                return ResourceManager.GetString("eDirNotExists", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find the disk with name &quot;{0}&quot;..
-        /// </summary>
-        public static string eDiskInvalidName {
-            get {
-                return ResourceManager.GetString("eDiskInvalidName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find the disk with number {0}..
-        /// </summary>
-        public static string eDiskInvalidNumber {
-            get {
-                return ResourceManager.GetString("eDiskInvalidNumber", resourceCulture);
+                return ResourceManager.GetString("errCommonDirNotExists", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to File &quot;{0}&quot; exists..
         /// </summary>
-        public static string eFileExists {
+        public static string errCommonFileExists {
             get {
-                return ResourceManager.GetString("eFileExists", resourceCulture);
+                return ResourceManager.GetString("errCommonFileExists", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to File &quot;{0}&quot; doesn&apos;t exist..
         /// </summary>
-        public static string eFileNotExists {
+        public static string errCommonFileNotExists {
             get {
-                return ResourceManager.GetString("eFileNotExists", resourceCulture);
+                return ResourceManager.GetString("errCommonFileNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find the disk with name &quot;{0}&quot;..
+        /// </summary>
+        public static string errDiskInvalidName {
+            get {
+                return ResourceManager.GetString("errDiskInvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find the disk with number {0}..
+        /// </summary>
+        public static string errDiskInvalidNumber {
+            get {
+                return ResourceManager.GetString("errDiskInvalidNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command &quot;{0}&quot; is not recognized. Use &quot;help&quot; command..
+        /// </summary>
+        public static string errTerminalBadCommand {
+            get {
+                return ResourceManager.GetString("errTerminalBadCommand", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to &quot;--version&quot; option is invalid in this context..
         /// </summary>
-        public static string eVersionAsOption {
+        public static string errTerminalVersionAsOption {
             get {
-                return ResourceManager.GetString("eVersionAsOption", resourceCulture);
+                return ResourceManager.GetString("errTerminalVersionAsOption", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error.
+        ///   Looks up a localized string similar to [ERROR].
         /// </summary>
-        public static string loggerError {
+        public static string loggerErrorPrefix {
             get {
-                return ResourceManager.GetString("loggerError", resourceCulture);
+                return ResourceManager.GetString("loggerErrorPrefix", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Success.
+        ///   Looks up a localized string similar to [SUCCESS].
         /// </summary>
-        public static string loggerSuccess {
+        public static string loggerSuccessPrefix {
             get {
-                return ResourceManager.GetString("loggerSuccess", resourceCulture);
+                return ResourceManager.GetString("loggerSuccessPrefix", resourceCulture);
             }
         }
         
@@ -358,29 +367,11 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Whether to overwrite the file..
-        /// </summary>
-        public static string moveOverwrite {
-            get {
-                return ResourceManager.GetString("moveOverwrite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Move to file path..
         /// </summary>
         public static string moveTo {
             get {
                 return ResourceManager.GetString("moveTo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Encoding (either Default, UTF8, ASCII or Unicode)..
-        /// </summary>
-        public static string newFileEnc {
-            get {
-                return ResourceManager.GetString("newFileEnc", resourceCulture);
             }
         }
         
@@ -408,15 +399,6 @@ namespace FileManager.Properties {
         public static string newFileOverwrite {
             get {
                 return ResourceManager.GetString("newFileOverwrite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Encoding (either Default, UTF8, ASCII or Unicode)..
-        /// </summary>
-        public static string printEnc {
-            get {
-                return ResourceManager.GetString("printEnc", resourceCulture);
             }
         }
         

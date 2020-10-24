@@ -47,7 +47,7 @@ namespace Command
                 {
                     if (!File.Exists(filePath))
                     {
-                        throw new FileNotFoundException(string.Format(Localization.eFileNotExists, filePath));
+                        throw new FileNotFoundException(string.Format(Localization.errCommonFileNotExists, filePath));
                     }
                 }
 

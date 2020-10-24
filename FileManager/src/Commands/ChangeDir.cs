@@ -44,7 +44,7 @@ namespace Command
             var testDirectory = new DirectoryInfo(testDirectoryStr);
 
             if (!testDirectory.Exists)
-                throw new DirectoryNotFoundException(Localization.eDirNotExists);
+                throw new DirectoryNotFoundException(Localization.errCommonDirNotExists);
 
             return testDirectory;
         }
