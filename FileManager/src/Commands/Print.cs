@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using CommandLine.Text;
 using FileManager;
 using FileManager.Properties;
 using System;
@@ -22,11 +23,24 @@ namespace Command
             Unicode = 3
         }
 
-        [Option('e', "encoding", Default = EncodingTypes.Default, HelpText = "printEnc", ResourceType = typeof(Localization))]
+        [Option('e', "encoding", Default = EncodingTypes.Default, HelpText = "commonEncoding", ResourceType = typeof(Localization))]
         public EncodingTypes Encoding_ { get; set; }
 
         [Value(0, MetaName = "files", HelpText = "printFiles", Required = true, ResourceType = typeof(Localization))]
         public IEnumerable<string> Files { get; set; }
+
+//         [Usage(ApplicationAlias = "ReadText.Demo.exe")]
+//         public static IEnumerable<Example> Examples
+//         {
+//             get
+//             {
+//                 yield return new Example("normal scenario", new NPrint());
+// //                 {
+// //                     Files = new string[] { "1.txt", "2.txt", "3.txt" },
+// //                     Encoding_ = EncodingTypes.UTF8,
+// //                 });
+//             }
+//         }
 
         public override void Execute()
         {

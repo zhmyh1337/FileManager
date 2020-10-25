@@ -71,10 +71,11 @@ namespace FileManager
 
         /// <summary>
         /// This method generates help text when a verb was specified,
-        /// but an error occured (e. g. when parsing options).
+        /// but an error occured (e. g. when parsing options)
+        /// or when "--help" option was specified on a verb.
         /// It shows our options + "--help" option.
         /// </summary>
-        private static HelpText GenerateVerbHelpText() => HelpText.AutoBuild(
+        private static HelpText GenerateOptionsHelpText() => HelpText.AutoBuild(
             lastParserResult,
             e =>
             {
@@ -91,7 +92,7 @@ namespace FileManager
         /// This method generates help text when "help" or "--help" command was specified.
         /// It shows our commands + "version" + "help".
         /// </summary>
-        private static HelpText GenerateHelpHelpText() => HelpText.AutoBuild(
+        private static HelpText GenerateCommandsHelpText() => HelpText.AutoBuild(
             lastParserResult,
             e =>
             {
@@ -131,14 +132,15 @@ namespace FileManager
                     return;
                 case BadVerbSelectedError e:
                     Logger.PrintError(Localization.errTerminalBadCommand, e.Token);
+                    Logger.PrintLine();
                     return;
                 case HelpVerbRequestedError _:
-                    Console.WriteLine(GenerateHelpHelpText());
+                    Console.WriteLine(GenerateCommandsHelpText());
                     return;
                 case Error e:
                     if (verbSpecified)
                     {
-                        Console.WriteLine(GenerateVerbHelpText());
+                        Console.WriteLine(GenerateOptionsHelpText());
                     }
                     else
                     {
@@ -165,16 +167,25 @@ namespace FileManager
                     if (!verbSpecified)
                     {
                         Console.WriteLine(HeadingInfo.Default);
+                        Environment.Exit(0);
                         return;
                     }
-                    break;
+                    else
+                    {
+                        break;
+                    }
                 // That's ok. Just continuing.
                 case NoVerbSelectedError _:
                     return;
                 case BadVerbSelectedError _:
                     break;
                 case HelpVerbRequestedError _:
-                    Console.WriteLine(GenerateHelpHelpText());
+                    Console.WriteLine(GenerateCommandsHelpText());
+                    Environment.Exit(0);
+                    return;
+                case HelpRequestedError _:
+                    Console.WriteLine(GenerateOptionsHelpText());
+                    Environment.Exit(0);
                     return;
             }
 

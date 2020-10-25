@@ -8,7 +8,6 @@ namespace Command
     {
         /// <summary>
         /// Executes command.
-        /// If an error occured, executes <paramref name="onError"/>.
         /// </summary>
         void Execute();
     }

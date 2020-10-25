@@ -394,15 +394,6 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Whether to overwrite the file if it exists..
-        /// </summary>
-        public static string newFileOverwrite {
-            get {
-                return ResourceManager.GetString("newFileOverwrite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Files to print..
         /// </summary>
         public static string printFiles {

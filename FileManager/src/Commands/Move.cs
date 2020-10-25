@@ -20,7 +20,7 @@ namespace Command
         [Value(1, MetaName = "to", HelpText = "moveTo", Required = true, ResourceType = typeof(Localization))]
         public string To { get; set; }
 
-        [Option('o', "overwrite", HelpText = "moveOverwrite", ResourceType = typeof(Localization))]
+        [Option('o', "overwrite", HelpText = "commonFileOverwrite", ResourceType = typeof(Localization))]
         public bool Overwrite { get; set; }
 
         public override void Execute()

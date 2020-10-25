@@ -225,9 +225,6 @@
   <data name="newFileLines" xml:space="preserve">
     <value>Lines to write to a new file.</value>
   </data>
-  <data name="newFileOverwrite" xml:space="preserve">
-    <value>Whether to overwrite the file if it exists.</value>
-  </data>
   <data name="debuggerPrefix" xml:space="preserve">
     <value>[DEBUG]</value>
   </data>
