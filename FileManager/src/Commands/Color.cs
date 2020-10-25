@@ -17,11 +17,20 @@ namespace Command
         [Value(0, MetaName = "color", HelpText = "colorColor", ResourceType = typeof(Localization))]
         public ConsoleColor? Color { get; set; }
 
+        [Option('r', "reset", HelpText = "colorReset", ResourceType = typeof(Localization))]
+        public bool Reset { get; set; }
+
         public override void Execute()
         {
             base.Execute();
             try
             {
+                if (Reset)
+                {
+                    Console.ResetColor();
+                    return;
+                }
+
                 if (Color == null)
                 {
                     var wasClr = Console.ForegroundColor;

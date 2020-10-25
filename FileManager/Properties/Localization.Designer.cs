@@ -160,6 +160,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset color to default..
+        /// </summary>
+        public static string colorReset {
+            get {
+                return ResourceManager.GetString("colorReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Encoding (either Default, UTF8, ASCII or Unicode)..
         /// </summary>
         public static string commonEncoding {

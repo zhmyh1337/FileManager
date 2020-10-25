@@ -243,4 +243,7 @@
   <data name="exampleMultiline" xml:space="preserve">
     <value>multiline scenario</value>
   </data>
+  <data name="colorReset" xml:space="preserve">
+    <value>Reset color to default.</value>
+  </data>
 </root>
