@@ -79,6 +79,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command clears the console..
+        /// </summary>
+        public static string cmdClear {
+            get {
+                return ResourceManager.GetString("cmdClear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command changes the foreground color of the console (or, if not specified, shows all console colors)..
         /// </summary>
         public static string cmdColor {
@@ -120,6 +129,24 @@ namespace FileManager.Properties {
         public static string cmdDisk {
             get {
                 return ResourceManager.GetString("cmdDisk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This command terminates the program..
+        /// </summary>
+        public static string cmdExit {
+            get {
+                return ResourceManager.GetString("cmdExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This command creates directory with the specified path..
+        /// </summary>
+        public static string cmdMkdir {
+            get {
+                return ResourceManager.GetString("cmdMkdir", resourceCulture);
             }
         }
         
@@ -286,6 +313,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This directory already exists..
+        /// </summary>
+        public static string errCommonDirExists {
+            get {
+                return ResourceManager.GetString("errCommonDirExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This directory doesn&apos;t exist..
         /// </summary>
         public static string errCommonDirNotExists {
@@ -390,6 +426,15 @@ namespace FileManager.Properties {
         public static string loggerSuccessPrefix {
             get {
                 return ResourceManager.GetString("loggerSuccessPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directory to create..
+        /// </summary>
+        public static string mkdirDir {
+            get {
+                return ResourceManager.GetString("mkdirDir", resourceCulture);
             }
         }
         

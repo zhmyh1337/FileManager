@@ -243,7 +243,22 @@
   <data name="exampleMultiline" xml:space="preserve">
     <value>multiline scenario</value>
   </data>
+  <data name="cmdExit" xml:space="preserve">
+    <value>This command terminates the program.</value>
+  </data>
   <data name="colorReset" xml:space="preserve">
     <value>Reset color to default.</value>
+  </data>
+  <data name="cmdClear" xml:space="preserve">
+    <value>This command clears the console.</value>
+  </data>
+  <data name="cmdMkdir" xml:space="preserve">
+    <value>This command creates directory with the specified path.</value>
+  </data>
+  <data name="errCommonDirExists" xml:space="preserve">
+    <value>This directory already exists.</value>
+  </data>
+  <data name="mkdirDir" xml:space="preserve">
+    <value>Directory to create.</value>
   </data>
 </root>

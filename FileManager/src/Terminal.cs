@@ -206,6 +206,9 @@ namespace FileManager
             typeof(Command.QDeleteFile),
             typeof(Command.QNewFile),
             typeof(Command.QColor),
+            typeof(Command.QExit),
+            typeof(Command.QClear),
+            typeof(Command.QCreateDir),
         };
 
         /// <summary>
@@ -221,6 +224,9 @@ namespace FileManager
             typeof(Command.NDeleteFile),
             typeof(Command.NNewFile),
             typeof(Command.NColor),
+            typeof(Command.NExit),
+            typeof(Command.NClear),
+            typeof(Command.NCreateDir),
         };
 
         /// <summary>
