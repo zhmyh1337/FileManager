@@ -234,4 +234,13 @@
   <data name="loggerSuccessPrefix" xml:space="preserve">
     <value>[SUCCESS]</value>
   </data>
+  <data name="exampleAdvanced" xml:space="preserve">
+    <value>advanced scenario</value>
+  </data>
+  <data name="exampleCommon" xml:space="preserve">
+    <value>common scenario</value>
+  </data>
+  <data name="exampleMultiline" xml:space="preserve">
+    <value>multiline scenario</value>
+  </data>
 </root>

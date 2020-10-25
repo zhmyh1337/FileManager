@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using CommandLine.Text;
 using FileManager;
 using FileManager.Properties;
 using System;
@@ -12,7 +13,7 @@ namespace Command
     /// This command creates a new file (and fills it with content in some encoding if specified).
     /// </summary>
     [Verb("new", HelpText = "cmdNewFile", ResourceType = typeof(Localization))]
-    abstract class BaseNewFile : BaseCommand
+    class BaseNewFile : BaseCommand
     {
         public enum EncodingTypes
         {
@@ -33,6 +34,36 @@ namespace Command
 
         [Value(1, MetaName = "lines", HelpText = "newFileLines", ResourceType = typeof(Localization))]
         public IEnumerable<string> Lines { get; set; }
+
+        [Usage(ApplicationAlias = "\b")]
+        public static IEnumerable<Example> Examples
+        {
+            get
+            {
+                yield return new Example(Localization.exampleCommon,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseNewFile
+                    {
+                        FilePath = "file.ext",
+                    });
+                yield return new Example(Localization.exampleAdvanced,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseNewFile
+                    {
+                        FilePath = "C:/Directory name/file.ext",
+                        Encoding_ = EncodingTypes.ASCII,
+                        Overwrite = true,
+                        Lines = new string[] { "file content" },
+                    });
+                yield return new Example(Localization.exampleMultiline,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseNewFile
+                    {
+                        FilePath = "file.ext",
+                        Lines = new string[] { "line 1", "line 2", "line 3" },
+                    });
+            }
+        }
 
         public override void Execute()
         {

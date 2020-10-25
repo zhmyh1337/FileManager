@@ -13,7 +13,7 @@ namespace Command
     /// This command prints content of one (or more files) to console with default (or specified) encoding.
     /// </summary>
     [Verb("print", HelpText = "cmdPrint", ResourceType = typeof(Localization))]
-    abstract class BasePrint : BaseCommand
+    class BasePrint : BaseCommand
     {
         public enum EncodingTypes
         {
@@ -29,18 +29,26 @@ namespace Command
         [Value(0, MetaName = "files", HelpText = "printFiles", Required = true, ResourceType = typeof(Localization))]
         public IEnumerable<string> Files { get; set; }
 
-//         [Usage(ApplicationAlias = "ReadText.Demo.exe")]
-//         public static IEnumerable<Example> Examples
-//         {
-//             get
-//             {
-//                 yield return new Example("normal scenario", new NPrint());
-// //                 {
-// //                     Files = new string[] { "1.txt", "2.txt", "3.txt" },
-// //                     Encoding_ = EncodingTypes.UTF8,
-// //                 });
-//             }
-//         }
+        [Usage(ApplicationAlias = "\b")]
+        public static IEnumerable<Example> Examples
+        {
+            get
+            {
+                yield return new Example(Localization.exampleCommon, 
+                    new UnParserSettings { PreferShortName = true }, 
+                    new BasePrint
+                    {
+                        Files = new string[] { "file.ext" },
+                    });
+                yield return new Example(Localization.exampleAdvanced,
+                    new UnParserSettings { PreferShortName = true },
+                    new BasePrint
+                    {
+                        Files = new string[] { "file1.ext", "file2.ext", "file3.ext" },
+                        Encoding_ = EncodingTypes.ASCII,
+                    });
+            }
+        }
 
         public override void Execute()
         {

@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using CommandLine.Text;
 using FileManager;
 using FileManager.Properties;
 using System;
@@ -12,7 +13,7 @@ namespace Command
     /// This command scans directory for files and/or directories.
     /// </summary>
     [Verb("dir", HelpText = "cmdDir", ResourceType = typeof(Localization))]
-    abstract class BaseDir : BaseCommand
+    class BaseDir : BaseCommand
     {
         [Value(0, MetaName = "dir", Default = "", HelpText = "dirDir", ResourceType = typeof(Localization))]
         public string Dir { get; set; }
@@ -22,6 +23,27 @@ namespace Command
 
         [Option('d', HelpText = "dirHideDirs", ResourceType = typeof(Localization))]
         public bool HideDirectories { get; set; }
+
+        [Usage(ApplicationAlias = "\b")]
+        public static IEnumerable<Example> Examples
+        {
+            get
+            {
+                yield return new Example(Localization.exampleCommon,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseDir
+                    {
+                        Dir = "C:/Directory",
+                    });
+                yield return new Example(Localization.exampleAdvanced,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseDir
+                    {
+                        Dir = "C:/Directory",
+                        HideFiles = true,
+                    });
+            }
+        }
 
         public override void Execute()
         {

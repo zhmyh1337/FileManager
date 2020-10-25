@@ -340,6 +340,33 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to advanced scenario.
+        /// </summary>
+        public static string exampleAdvanced {
+            get {
+                return ResourceManager.GetString("exampleAdvanced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to common scenario.
+        /// </summary>
+        public static string exampleCommon {
+            get {
+                return ResourceManager.GetString("exampleCommon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to multiline scenario.
+        /// </summary>
+        public static string exampleMultiline {
+            get {
+                return ResourceManager.GetString("exampleMultiline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [ERROR].
         /// </summary>
         public static string loggerErrorPrefix {

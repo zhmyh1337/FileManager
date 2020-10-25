@@ -12,7 +12,7 @@ namespace Command
     /// This command deletes a file.
     /// </summary>
     [Verb("del", HelpText = "cmdDelFile", ResourceType = typeof(Localization))]
-    abstract class BaseDeleteFile : BaseCommand
+    class BaseDeleteFile : BaseCommand
     {
         [Value(0, MetaName = "file", HelpText = "delFileFile", Required = true, ResourceType = typeof(Localization))]
         public string FilePath { get; set; }

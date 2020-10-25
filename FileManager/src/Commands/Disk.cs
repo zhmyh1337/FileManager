@@ -12,7 +12,7 @@ namespace Command
     /// This command changes the disk if specified, otherwise displays the list of all disks.
     /// </summary>
     [Verb("disk", HelpText = "cmdDisk", ResourceType = typeof(Localization))]
-    abstract class BaseDisk : BaseCommand
+    class BaseDisk : BaseCommand
     {
         [Value(0, MetaName = "disk", HelpText = "diskDisk", ResourceType = typeof(Localization))]
         public string Disk { get; set; }

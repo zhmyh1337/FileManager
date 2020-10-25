@@ -12,7 +12,7 @@ namespace Command
     /// This command changes console foreground color.
     /// </summary>
     [Verb("color", HelpText = "cmdColor", ResourceType = typeof(Localization))]
-    abstract class BaseColor : BaseCommand
+    class BaseColor : BaseCommand
     {
         [Value(0, MetaName = "color", HelpText = "colorColor", ResourceType = typeof(Localization))]
         public ConsoleColor? Color { get; set; }

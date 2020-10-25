@@ -12,7 +12,7 @@ namespace Command
     /// This command changes the working directory.
     /// </summary>
     [Verb("cd", HelpText = "cmdCd", ResourceType = typeof(Localization))]
-    abstract class BaseChangeDir : BaseCommand
+    class BaseChangeDir : BaseCommand
     {
         [Value(0, MetaName = "dir", HelpText = "cdDir", Required = true, ResourceType = typeof(Localization))]
         public string Dir { get; set; }

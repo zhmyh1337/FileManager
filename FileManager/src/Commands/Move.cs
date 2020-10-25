@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using CommandLine.Text;
 using FileManager;
 using FileManager.Properties;
 using System;
@@ -12,7 +13,7 @@ namespace Command
     /// This command moves file from one place to another (and overwrites the old file if specified).
     /// </summary>
     [Verb("move", HelpText = "cmdMove", ResourceType = typeof(Localization))]
-    abstract class BaseMove : BaseCommand
+    class BaseMove : BaseCommand
     {
         [Value(0, MetaName = "from", HelpText = "moveFrom", Required = true, ResourceType = typeof(Localization))]
         public string From { get; set; }
@@ -22,6 +23,29 @@ namespace Command
 
         [Option('o', "overwrite", HelpText = "commonFileOverwrite", ResourceType = typeof(Localization))]
         public bool Overwrite { get; set; }
+
+        [Usage(ApplicationAlias = "\b")]
+        public static IEnumerable<Example> Examples
+        {
+            get
+            {
+                yield return new Example(Localization.exampleCommon,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseMove
+                    {
+                        From = "C:/From/file.ext",
+                        To = "C:/To/file.ext",
+                    });
+                yield return new Example(Localization.exampleAdvanced,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseMove
+                    {
+                        From = "C:/From/file.ext",
+                        To = "C:/To/file.ext",
+                        Overwrite = true,
+                    });
+            }
+        }
 
         public override void Execute()
         {

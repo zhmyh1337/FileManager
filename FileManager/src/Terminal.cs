@@ -83,6 +83,7 @@ namespace FileManager
                 e.AutoVersion = false;
                 e.Heading = string.Empty;
                 e.Copyright = string.Empty;
+                e.AddNewLineBetweenHelpSections = true;
                 return HelpText.DefaultParsingErrorsHandler(lastParserResult, e);
             },
             ex => ex
