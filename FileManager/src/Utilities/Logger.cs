@@ -19,7 +19,7 @@ namespace FileManager
 
         public static void PrintLine(string message)
         {
-            Writer(message);
+            WriteLiner(message);
         }
 
         public static void PrintLine(string message, params object[] args)
@@ -32,6 +32,17 @@ namespace FileManager
             PrintLine("");
         }
 
-        public static Action<string> Writer { get; set; } = Console.WriteLine;
+        public static void Print(string message)
+        {
+            Writer(message);
+        }
+
+        public static void Print(string message, params object[] args)
+        {
+            Print(string.Format(message, args));
+        }
+
+        public static Action<string> Writer { get; set; } = Console.Write;
+        public static Action<string> WriteLiner { get; set; } = Console.WriteLine;
     }
 }

@@ -18,7 +18,10 @@ namespace Command
         {
             // Print nothing if -q (--quite).
             if (((Command.IQuite)this).Quite)
+            {
                 FileManager.Logger.Writer = x => { };
+                FileManager.Logger.WriteLiner = x => { };
+            }
         }
 
         /// <summary>

@@ -210,6 +210,7 @@ namespace FileManager
             typeof(Command.QClear),
             typeof(Command.QMakeDir),
             typeof(Command.QRemoveDir),
+            typeof(Command.QHacker),
         };
 
         /// <summary>
@@ -229,6 +230,7 @@ namespace FileManager
             typeof(Command.NClear),
             typeof(Command.NMakeDir),
             typeof(Command.NRemoveDir),
+            typeof(Command.NHacker),
         };
 
         /// <summary>
