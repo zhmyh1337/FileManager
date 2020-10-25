@@ -9,12 +9,12 @@ using System.Text;
 namespace Command
 {
     /// <summary>
-    /// This command changes console foreground color.
+    /// This command creates a directory with the specified path.
     /// </summary>
     [Verb("mkdir", HelpText = "cmdMkdir", ResourceType = typeof(Localization))]
-    class BaseCreateDir : BaseCommand
+    class BaseMakeDir : BaseCommand
     {
-        [Value(0, MetaName = "dir", HelpText = "mkdirDir", ResourceType = typeof(Localization))]
+        [Value(0, MetaName = "dir", HelpText = "mkdirDir", Required = true, ResourceType = typeof(Localization))]
         public string Dir { get; set; }
 
         public override void Execute()
@@ -35,12 +35,12 @@ namespace Command
         }
     }
 
-    class QCreateDir : BaseCreateDir, IQuiteable
+    class QMakeDir : BaseMakeDir, IQuiteable
     {
         public bool Quite { get; set; }
     }
 
-    class NCreateDir : BaseCreateDir, INotQuiteable
+    class NMakeDir : BaseMakeDir, INotQuiteable
     {
         public bool Quite { get => false; set => throw new NotImplementedException(); }
     }

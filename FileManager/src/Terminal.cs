@@ -208,7 +208,8 @@ namespace FileManager
             typeof(Command.QColor),
             typeof(Command.QExit),
             typeof(Command.QClear),
-            typeof(Command.QCreateDir),
+            typeof(Command.QMakeDir),
+            typeof(Command.QRemoveDir),
         };
 
         /// <summary>
@@ -226,7 +227,8 @@ namespace FileManager
             typeof(Command.NColor),
             typeof(Command.NExit),
             typeof(Command.NClear),
-            typeof(Command.NCreateDir),
+            typeof(Command.NMakeDir),
+            typeof(Command.NRemoveDir),
         };
 
         /// <summary>

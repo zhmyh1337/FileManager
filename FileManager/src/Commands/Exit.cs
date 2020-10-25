@@ -9,7 +9,7 @@ using System.Text;
 namespace Command
 {
     /// <summary>
-    /// This command changes console foreground color.
+    /// This command terminates the program.
     /// </summary>
     [Verb("exit", HelpText = "cmdExit", ResourceType = typeof(Localization))]
     class BaseExit : BaseCommand

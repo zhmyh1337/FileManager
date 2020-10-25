@@ -253,12 +253,18 @@
     <value>This command clears the console.</value>
   </data>
   <data name="cmdMkdir" xml:space="preserve">
-    <value>This command creates directory with the specified path.</value>
+    <value>This command creates a directory with the specified path.</value>
+  </data>
+  <data name="cmdRmdir" xml:space="preserve">
+    <value>This command removes the directory with the specified path.</value>
   </data>
   <data name="errCommonDirExists" xml:space="preserve">
     <value>This directory already exists.</value>
   </data>
   <data name="mkdirDir" xml:space="preserve">
     <value>Directory to create.</value>
+  </data>
+  <data name="rmdirDir" xml:space="preserve">
+    <value>Directory to remove.</value>
   </data>
 </root>

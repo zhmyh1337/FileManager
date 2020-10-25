@@ -142,7 +142,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This command creates directory with the specified path..
+        ///   Looks up a localized string similar to This command creates a directory with the specified path..
         /// </summary>
         public static string cmdMkdir {
             get {
@@ -174,6 +174,15 @@ namespace FileManager.Properties {
         public static string cmdPrint {
             get {
                 return ResourceManager.GetString("cmdPrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This command removes the directory with the specified path..
+        /// </summary>
+        public static string cmdRmdir {
+            get {
+                return ResourceManager.GetString("cmdRmdir", resourceCulture);
             }
         }
         
@@ -489,6 +498,15 @@ namespace FileManager.Properties {
         public static string quiteQuite {
             get {
                 return ResourceManager.GetString("quiteQuite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directory to remove..
+        /// </summary>
+        public static string rmdirDir {
+            get {
+                return ResourceManager.GetString("rmdirDir", resourceCulture);
             }
         }
     }

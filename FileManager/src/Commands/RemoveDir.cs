@@ -9,17 +9,23 @@ using System.Text;
 namespace Command
 {
     /// <summary>
-    /// This command clears the console.
+    /// This command removes the directory with the specified path.
     /// </summary>
-    [Verb("clear", HelpText = "cmdClear", ResourceType = typeof(Localization))]
-    class BaseClear : BaseCommand
+    [Verb("rmdir", HelpText = "cmdRmdir", ResourceType = typeof(Localization))]
+    class BaseRemoveDir : BaseCommand
     {
+        [Value(0, MetaName = "dir", HelpText = "rmdirDir", Required = true, ResourceType = typeof(Localization))]
+        public string Dir { get; set; }
+
         public override void Execute()
         {
             base.Execute();
             try
             {
-                Console.Clear();
+                if (!Directory.Exists(Dir))
+                    throw new ArgumentException(Localization.errCommonDirNotExists);
+
+                Directory.Delete(Dir, true);
             }
             catch (Exception e)
             {
@@ -29,12 +35,12 @@ namespace Command
         }
     }
 
-    class QClear : BaseClear, IQuiteable
+    class QRemoveDir : BaseRemoveDir, IQuiteable
     {
         public bool Quite { get; set; }
     }
 
-    class NClear : BaseClear, INotQuiteable
+    class NRemoveDir : BaseRemoveDir, INotQuiteable
     {
         public bool Quite { get => false; set => throw new NotImplementedException(); }
     }
