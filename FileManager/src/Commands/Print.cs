@@ -5,6 +5,7 @@ using FileManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Command
@@ -73,17 +74,17 @@ namespace Command
                     }
                 }
 
+                var maxPathLength = Files.Select(s => s.Length).Max();
+                const string pathHeaderTemplate = "===== {0} =====";
+
                 foreach (var filePath in Files)
                 {
-                    using (StreamReader reader = new StreamReader(filePath, encoding))
-                    {
-                        for (string s = reader.ReadLine(); s != null; s = reader.ReadLine())
-                        {
-                            Logger.PrintLine(s);
-                        }
-                    }
-                    Logger.PrintLine();
+                    Logger.PrintLine($"===== {filePath.PadRight(maxPathLength)} =====");
+                    Logger.PrintLine(File.ReadAllText(filePath, encoding));
                 }
+
+                // Not counting {0}.
+                Logger.PrintLine(new string('=', pathHeaderTemplate.Length - 3 + maxPathLength));
             }
             catch (Exception e)
             {
