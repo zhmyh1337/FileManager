@@ -186,8 +186,8 @@
   <data name="cmdMove" xml:space="preserve">
     <value>This command moves file from one place to another (and overwrites the old file it if specified).</value>
   </data>
-  <data name="cmdNewFile" xml:space="preserve">
-    <value>This command creates a new file (and fills it with content in some encoding if specified).</value>
+  <data name="cmdWriteFile" xml:space="preserve">
+    <value>This command creates a new file (or rewrites an existing one if the overwrite option was specified) and fills it with content in some encoding if specified.</value>
   </data>
   <data name="colorColor" xml:space="preserve">
     <value>Color to specify (optional).</value>
@@ -196,7 +196,7 @@
     <value>Copy from file path.</value>
   </data>
   <data name="commonFileOverwrite" xml:space="preserve">
-    <value>Whether to overwrite the file.</value>
+    <value>Whether to overwrite the file if it exists.</value>
   </data>
   <data name="copyTo" xml:space="preserve">
     <value>Copy to file path.</value>
@@ -219,11 +219,11 @@
   <data name="commonEncoding" xml:space="preserve">
     <value>Encoding (either Default, UTF8, ASCII or Unicode).</value>
   </data>
-  <data name="newFileFile" xml:space="preserve">
-    <value>File to create.</value>
+  <data name="writeFileFile" xml:space="preserve">
+    <value>File to create (rewrite).</value>
   </data>
-  <data name="newFileLines" xml:space="preserve">
-    <value>Lines to write to a new file.</value>
+  <data name="writeFileLines" xml:space="preserve">
+    <value>Lines to write to a new (existing) file.</value>
   </data>
   <data name="debuggerPrefix" xml:space="preserve">
     <value>[DEBUG]</value>

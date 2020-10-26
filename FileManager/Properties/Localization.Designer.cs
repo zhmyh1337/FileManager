@@ -160,15 +160,6 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This command creates a new file (and fills it with content in some encoding if specified)..
-        /// </summary>
-        public static string cmdNewFile {
-            get {
-                return ResourceManager.GetString("cmdNewFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This command prints content of one (or more files) to console with default (or specified) encoding..
         /// </summary>
         public static string cmdPrint {
@@ -183,6 +174,15 @@ namespace FileManager.Properties {
         public static string cmdRmdir {
             get {
                 return ResourceManager.GetString("cmdRmdir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This command creates a new file (or rewrites an existing one if the overwrite option was specified) and fills it with content in some encoding if specified..
+        /// </summary>
+        public static string cmdWriteFile {
+            get {
+                return ResourceManager.GetString("cmdWriteFile", resourceCulture);
             }
         }
         
@@ -214,7 +214,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Whether to overwrite the file..
+        ///   Looks up a localized string similar to Whether to overwrite the file if it exists..
         /// </summary>
         public static string commonFileOverwrite {
             get {
@@ -466,24 +466,6 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File to create..
-        /// </summary>
-        public static string newFileFile {
-            get {
-                return ResourceManager.GetString("newFileFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lines to write to a new file..
-        /// </summary>
-        public static string newFileLines {
-            get {
-                return ResourceManager.GetString("newFileLines", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Files to print..
         /// </summary>
         public static string printFiles {
@@ -507,6 +489,24 @@ namespace FileManager.Properties {
         public static string rmdirDir {
             get {
                 return ResourceManager.GetString("rmdirDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File to create (rewrite)..
+        /// </summary>
+        public static string writeFileFile {
+            get {
+                return ResourceManager.GetString("writeFileFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lines to write to a new (existing) file..
+        /// </summary>
+        public static string writeFileLines {
+            get {
+                return ResourceManager.GetString("writeFileLines", resourceCulture);
             }
         }
     }

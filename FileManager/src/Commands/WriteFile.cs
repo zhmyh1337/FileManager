@@ -10,10 +10,11 @@ using System.Text;
 namespace Command
 {
     /// <summary>
-    /// This command creates a new file (and fills it with content in some encoding if specified).
+    /// This command creates a new file (or rewrites an existing one if the overwrite option was specified) 
+    /// and fills it with content in some encoding if specified.
     /// </summary>
-    [Verb("new", HelpText = "cmdNewFile", ResourceType = typeof(Localization))]
-    class BaseNewFile : BaseCommand
+    [Verb("write", HelpText = "cmdWriteFile", ResourceType = typeof(Localization))]
+    class BaseWriteFile : BaseCommand
     {
         public enum EncodingTypes
         {
@@ -29,10 +30,10 @@ namespace Command
         [Option('o', "overwrite", HelpText = "commonFileOverwrite", ResourceType = typeof(Localization))]
         public bool Overwrite { get; set; }
 
-        [Value(0, MetaName = "file", HelpText = "newFileFile", Required = true, ResourceType = typeof(Localization))]
+        [Value(0, MetaName = "file", HelpText = "writeFileFile", Required = true, ResourceType = typeof(Localization))]
         public string FilePath { get; set; }
 
-        [Value(1, MetaName = "lines", HelpText = "newFileLines", ResourceType = typeof(Localization))]
+        [Value(1, MetaName = "lines", HelpText = "writeFileLines", ResourceType = typeof(Localization))]
         public IEnumerable<string> Lines { get; set; }
 
         [Usage(ApplicationAlias = "\b")]
@@ -42,13 +43,13 @@ namespace Command
             {
                 yield return new Example(Localization.exampleCommon,
                     new UnParserSettings { PreferShortName = true },
-                    new BaseNewFile
+                    new BaseWriteFile
                     {
                         FilePath = "file.ext",
                     });
                 yield return new Example(Localization.exampleAdvanced,
                     new UnParserSettings { PreferShortName = true },
-                    new BaseNewFile
+                    new BaseWriteFile
                     {
                         FilePath = "C:/Directory name/file.ext",
                         Encoding_ = EncodingTypes.ASCII,
@@ -57,7 +58,7 @@ namespace Command
                     });
                 yield return new Example(Localization.exampleMultiline,
                     new UnParserSettings { PreferShortName = true },
-                    new BaseNewFile
+                    new BaseWriteFile
                     {
                         FilePath = "file.ext",
                         Lines = new string[] { "line 1", "line 2", "line 3" },
@@ -99,12 +100,12 @@ namespace Command
         }
     }
 
-    class QNewFile : BaseNewFile, IQuiteable
+    class QWriteFile : BaseWriteFile, IQuiteable
     {
         public bool Quite { get; set; }
     }
 
-    class NNewFile : BaseNewFile, INotQuiteable
+    class NWriteFile : BaseWriteFile, INotQuiteable
     {
         public bool Quite { get => false; set => throw new NotImplementedException(); }
     }
