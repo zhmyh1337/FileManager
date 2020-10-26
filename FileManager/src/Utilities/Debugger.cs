@@ -9,13 +9,13 @@ namespace Utilities
         {
             var wasClr = Console.ForegroundColor;
             Console.ForegroundColor = debuggerColor;
-            Console.WriteLine(message);
+            Console.WriteLine($"{Localization.debuggerPrefix} {message}");
             Console.ForegroundColor = wasClr;
         }
 
         public static void PrintLine(string message, params object[] args)
         {
-            PrintLine(string.Format($"{Localization.debuggerPrefix} {message}", args));
+            PrintLine(string.Format(message, args));
         }
 
         private const ConsoleColor debuggerColor = ConsoleColor.Red;

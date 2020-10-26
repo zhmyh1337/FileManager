@@ -187,7 +187,7 @@
     <value>This command moves file from one place to another (and overwrites the old file it if specified).</value>
   </data>
   <data name="cmdWriteFile" xml:space="preserve">
-    <value>This command creates a new file (or rewrites an existing one if the overwrite option was specified) and fills it with content in some encoding if specified.</value>
+    <value>This command creates a new file and fills it with content in some encoding if specified. If the file existed and overwrite option was specified, overwrites it. If the file existed and append option was specified, appends to it.</value>
   </data>
   <data name="colorColor" xml:space="preserve">
     <value>Color to specify (optional).</value>
@@ -266,5 +266,11 @@
   </data>
   <data name="rmdirDir" xml:space="preserve">
     <value>Directory to remove.</value>
+  </data>
+  <data name="errWriteFileOverwriteAndAppend" xml:space="preserve">
+    <value>Options "overwrite" and "append" cannot be specified at the same time.</value>
+  </data>
+  <data name="writeFileAppend" xml:space="preserve">
+    <value>Whether to append to the file if it exists.</value>
   </data>
 </root>

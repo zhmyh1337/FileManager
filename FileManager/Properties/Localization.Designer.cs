@@ -178,7 +178,7 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This command creates a new file (or rewrites an existing one if the overwrite option was specified) and fills it with content in some encoding if specified..
+        ///   Looks up a localized string similar to This command creates a new file and fills it with content in some encoding if specified. If the file existed and overwrite option was specified, overwrites it. If the file existed and append option was specified, appends to it..
         /// </summary>
         public static string cmdWriteFile {
             get {
@@ -394,6 +394,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Options &quot;overwrite&quot; and &quot;append&quot; cannot be specified at the same time..
+        /// </summary>
+        public static string errWriteFileOverwriteAndAppend {
+            get {
+                return ResourceManager.GetString("errWriteFileOverwriteAndAppend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to advanced scenario.
         /// </summary>
         public static string exampleAdvanced {
@@ -489,6 +498,15 @@ namespace FileManager.Properties {
         public static string rmdirDir {
             get {
                 return ResourceManager.GetString("rmdirDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether to append to the file if it exists..
+        /// </summary>
+        public static string writeFileAppend {
+            get {
+                return ResourceManager.GetString("writeFileAppend", resourceCulture);
             }
         }
         
