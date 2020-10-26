@@ -1,9 +1,7 @@
 ﻿using FileManager.Properties;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace FileManager
+namespace Utilities
 {
     static class Logger
     {

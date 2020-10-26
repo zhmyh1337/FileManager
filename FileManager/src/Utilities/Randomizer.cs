@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace FileManager
+namespace Utilities
 {
-    class Randomizer
+    static class Randomizer
     {
         public static Random Get() => rng;
 

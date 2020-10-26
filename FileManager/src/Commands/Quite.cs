@@ -1,8 +1,5 @@
 ﻿using CommandLine;
 using FileManager.Properties;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Command
 {

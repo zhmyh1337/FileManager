@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Linq;
-using System.Text;
 
-namespace FileManager
+namespace Utilities
 {
     /// <summary>
     /// This static class parses string as args.

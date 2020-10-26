@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Utilities;
 
 namespace Command
 {
@@ -19,8 +18,8 @@ namespace Command
             // Print nothing if -q (--quite).
             if (((Command.IQuite)this).Quite)
             {
-                FileManager.Logger.Writer = x => { };
-                FileManager.Logger.WriteLiner = x => { };
+                Logger.Writer = x => { };
+                Logger.WriteLiner = x => { };
             }
         }
 

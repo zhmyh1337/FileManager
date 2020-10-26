@@ -1,11 +1,10 @@
 ﻿using CommandLine;
 using CommandLine.Text;
-using FileManager;
 using FileManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using Utilities;
 
 namespace Command
 {
@@ -16,16 +15,8 @@ namespace Command
     [Verb("write", HelpText = "cmdWriteFile", ResourceType = typeof(Localization))]
     class BaseWriteFile : BaseCommand
     {
-        public enum EncodingTypes
-        {
-            Default = 0,
-            UTF8 = 1,
-            ASCII = 2,
-            Unicode = 3
-        }
-
-        [Option('e', "encoding", Default = EncodingTypes.Default, HelpText = "commonEncoding", ResourceType = typeof(Localization))]
-        public EncodingTypes Encoding_ { get; set; }
+        [Option('e', "encoding", Default = Encodings.SupportedEncodings.Default, HelpText = "commonEncoding", ResourceType = typeof(Localization))]
+        public Encodings.SupportedEncodings Encoding { get; set; }
 
         [Option('o', "overwrite", HelpText = "commonFileOverwrite", ResourceType = typeof(Localization))]
         public bool Overwrite { get; set; }
@@ -52,7 +43,7 @@ namespace Command
                     new BaseWriteFile
                     {
                         FilePath = "C:/Directory name/file.ext",
-                        Encoding_ = EncodingTypes.ASCII,
+                        Encoding = Encodings.SupportedEncodings.ASCII,
                         Overwrite = true,
                         Lines = new string[] { "file content" },
                     });
@@ -72,19 +63,12 @@ namespace Command
 
             try
             {
-                Encoding encoding = Encoding_ switch
-                {
-                    EncodingTypes.Default => Encoding.Default,
-                    EncodingTypes.UTF8 => Encoding.UTF8,
-                    EncodingTypes.ASCII => Encoding.ASCII,
-                    EncodingTypes.Unicode => Encoding.Unicode,
-                    _ => Encoding.Default,
-                };
+                Debugger.PrintLine("");
 
                 if (!Overwrite && File.Exists(FilePath))
                     throw new ArgumentException(string.Format(Localization.errCommonFileExists, FilePath));
 
-                using (StreamWriter writer = new StreamWriter(FilePath, false, encoding))
+                using (StreamWriter writer = new StreamWriter(FilePath, false, Encoding.GetEncoding()))
                 {
                     foreach (var line in Lines)
                     {

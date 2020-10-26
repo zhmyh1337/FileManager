@@ -1,12 +1,11 @@
 ﻿using CommandLine;
 using CommandLine.Text;
-using FileManager;
 using FileManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
+using Utilities;
 
 namespace Command
 {
@@ -16,16 +15,8 @@ namespace Command
     [Verb("print", HelpText = "cmdPrint", ResourceType = typeof(Localization))]
     class BasePrint : BaseCommand
     {
-        public enum EncodingTypes
-        {
-            Default = 0,
-            UTF8 = 1,
-            ASCII = 2,
-            Unicode = 3
-        }
-
-        [Option('e', "encoding", Default = EncodingTypes.Default, HelpText = "commonEncoding", ResourceType = typeof(Localization))]
-        public EncodingTypes Encoding_ { get; set; }
+        [Option('e', "encoding", Default = Encodings.SupportedEncodings.Default, HelpText = "commonEncoding", ResourceType = typeof(Localization))]
+        public Encodings.SupportedEncodings Encoding { get; set; }
 
         [Value(0, MetaName = "files", HelpText = "printFiles", Required = true, ResourceType = typeof(Localization))]
         public IEnumerable<string> Files { get; set; }
@@ -46,7 +37,7 @@ namespace Command
                     new BasePrint
                     {
                         Files = new string[] { "file1.ext", "file2.ext", "file3.ext" },
-                        Encoding_ = EncodingTypes.ASCII,
+                        Encoding = Encodings.SupportedEncodings.ASCII,
                     });
             }
         }
@@ -57,15 +48,6 @@ namespace Command
 
             try
             {
-                Encoding encoding = Encoding_ switch
-                {
-                    EncodingTypes.Default => Encoding.Default,
-                    EncodingTypes.UTF8 => Encoding.UTF8,
-                    EncodingTypes.ASCII => Encoding.ASCII,
-                    EncodingTypes.Unicode => Encoding.Unicode,
-                    _ => Encoding.Default,
-                };
-
                 foreach (var filePath in Files)
                 {
                     if (!File.Exists(filePath))
@@ -80,7 +62,7 @@ namespace Command
                 foreach (var filePath in Files)
                 {
                     Logger.PrintLine($"===== {filePath.PadRight(maxPathLength)} =====");
-                    Logger.PrintLine(File.ReadAllText(filePath, encoding));
+                    Logger.PrintLine(File.ReadAllText(filePath, Encoding.GetEncoding()));
                 }
 
                 // Not counting {0}.
