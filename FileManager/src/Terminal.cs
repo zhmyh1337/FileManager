@@ -90,14 +90,15 @@ namespace FileManager
 
         /// <summary>
         /// This method generates help text when "help" or "--help" command was specified.
-        /// It shows our commands + "version" + "help".
+        /// It shows our commands + "version" + "help" when no verb was specified.
+        /// It show our options + "--help" option when a verb was specified.
         /// </summary>
-        private static HelpText GenerateCommandsHelpText() => HelpText.AutoBuild(
+        private static HelpText GenerateCommandsHelpText(bool autoVersion) => HelpText.AutoBuild(
             lastParserResult,
             e =>
             {
                 e.AutoHelp = true;
-                e.AutoVersion = true;
+                e.AutoVersion = autoVersion;
                 e.Heading = string.Empty;
                 e.Copyright = string.Empty;
                 return HelpText.DefaultParsingErrorsHandler(lastParserResult, e);
@@ -110,12 +111,15 @@ namespace FileManager
         /// <param name="errors"></param>
         private static void HandleErrors(IEnumerable<Error> errors)
         {
+            var firstError = errors?.FirstOrDefault();
+
             // Checking whether a verb was specified.
             // We need this because "version" and "cmd --version"
             // throw the same error and we want to differentiate it.
-            bool verbSpecified = lastParserResult.TypeInfo.Current != typeof(NullInstance);
+            bool verbSpecified = lastParserResult.TypeInfo.Current != typeof(NullInstance) ||
+                firstError is HelpVerbRequestedError err && err.Matched;
 
-            switch (errors?.FirstOrDefault())
+            switch (firstError)
             {
                 case VersionRequestedError _:
                     if (verbSpecified)
@@ -135,7 +139,7 @@ namespace FileManager
                     Logger.PrintLine();
                     return;
                 case HelpVerbRequestedError _:
-                    Console.WriteLine(GenerateCommandsHelpText());
+                    Console.WriteLine(GenerateCommandsHelpText(!verbSpecified));
                     return;
                 case Error e:
                     if (verbSpecified)
@@ -156,10 +160,13 @@ namespace FileManager
         /// <param name="errors"></param>
         private static void HandleErrorsArgsLaunching(IEnumerable<Error> errors)
         {
+            var firstError = errors?.FirstOrDefault();
+
             // Checking whether a verb was specified.
             // We need this because "version" and "cmd --version"
             // throw the same error and we want to differentiate it.
-            bool verbSpecified = lastParserResult.TypeInfo.Current != typeof(NullInstance);
+            bool verbSpecified = lastParserResult.TypeInfo.Current != typeof(NullInstance) ||
+               firstError is HelpVerbRequestedError err && err.Matched;
 
             switch (errors?.FirstOrDefault())
             {
@@ -180,7 +187,7 @@ namespace FileManager
                 case BadVerbSelectedError _:
                     break;
                 case HelpVerbRequestedError _:
-                    Console.WriteLine(GenerateCommandsHelpText());
+                    Console.WriteLine(GenerateCommandsHelpText(!verbSpecified));
                     Environment.Exit(0);
                     return;
                 case HelpRequestedError _:
