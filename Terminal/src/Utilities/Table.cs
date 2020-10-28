@@ -6,7 +6,7 @@ namespace Utilities
 {
     class Table
     {
-        public Table(int columnsCount, string[,] data, string name = null,
+        public Table(int columnsCount, string[][] data, string name = null,
             string[] header = null, int[] maxLengthInColumn = null)
         {
             this.columnsCount = columnsCount;
@@ -20,21 +20,14 @@ namespace Utilities
 
         public void Print()
         {
-            var printData = new string[data.GetLength(0) + (header == null ? 0 : 1), data.GetLength(1)];
+            int headerOffset = header == null ? 0 : 1;
+
+            var printData = new string[rowsCount + headerOffset][];
             if (header != null)
             {
-                for (int j = 0; j < columnsCount; j++)
-                {
-                    printData[0, j] = header[j].CutWithDots(columnLengths[j]);
-                }
+                printData[0] = header;
             }
-            for (int i = 0; i < rowsCount; i++)
-            {
-                for (int j = 0; j < columnsCount; j++)
-                {
-                    printData[i + (header == null ? 0 : 1), j] = data[i, j].CutWithDots(columnLengths[j]);
-                }
-            }
+            Array.Copy(data, 0, printData, headerOffset, rowsCount);
 
             if (name != null)
             {
@@ -43,19 +36,20 @@ namespace Utilities
                 Logger.PrintLine($"║{printName.PadRight(globalLength)}║");
             }
 
-            for (int i = 0; i < printData.GetLength(0); i++)
+            for (int i = 0; i < printData.Length; i++)
             {
                 bool firstLine = name == null && i == 0;
                 PrintSeparator(firstLine ? '╔' : '╠', firstLine ? '╗' : '╣', '═', i == 0 ? '╦' : '╬');
 
-                for (int j = 0; j < printData.GetLength(1); j++)
+                for (int j = 0; j < columnsCount; j++)
                 {
-                    Logger.Print($"║{printData[i, j].PadRight(columnLengths[j])}");
+                    Logger.Print("║{0}", printData[i][j].CutWithDots(columnLengths[j]).PadRight(columnLengths[j]));
                 }
+
                 Logger.PrintLine("║");
             }
 
-            PrintSeparator('╚', '╝', '═', printData.GetLength(0) == 0 ? '═' : '╩');
+            PrintSeparator('╚', '╝', '═', printData.Length == 0 ? '═' : '╩');
         }
 
         private void PrintSeparator(char left, char right, char horizontal, char vertical)
@@ -76,14 +70,14 @@ namespace Utilities
 
         private void GenerateColumnLengths()
         {
-            rowsCount = data.GetLength(0);
+            rowsCount = data.Length;
             columnLengths = Enumerable.Range(0, columnsCount).Select(x => header == null ? 0 : header[x].Length).ToArray();
 
             for (int i = 0; i < rowsCount; i++)
             {
                 for (int j = 0; j < columnsCount; j++)
                 {
-                    columnLengths[j] = Math.Max(columnLengths[j], data[i, j].Length);
+                    columnLengths[j] = Math.Max(columnLengths[j], data[i][j].Length);
                 }
             }
 
@@ -99,7 +93,7 @@ namespace Utilities
         }
 
         private int columnsCount;
-        private string[,] data;
+        private string[][] data;
         private string name;
         private string[] header;
         private int[] maxLengthInColumn;

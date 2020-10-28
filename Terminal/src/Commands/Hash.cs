@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Utilities;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Command
 {
@@ -88,13 +89,11 @@ namespace Command
                 }
                 else
                 {
-                    var data = new string[Files.Count(), 2];
-                    for (int i = 0; i < Files.Count(); i++)
+                    var data = Enumerable.Range(0, Files.Count()).Select(i => 
                     {
                         var filePath = Files.ElementAt(i);
-                        data[i, 0] = filePath;
-                        data[i, 1] = filePathToHashSumString(filePath);
-                    }
+                        return new string[] { filePath, filePathToHashSumString(filePath) };
+                    }).ToArray();
 
                     // Keep in mind that (tableHeader[0].Length + tableHeader[1].Length)
                     // is gotta be < (algorithmHeader.Length).
