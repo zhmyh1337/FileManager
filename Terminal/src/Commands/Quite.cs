@@ -1,5 +1,5 @@
 ﻿using CommandLine;
-using FileManager.Properties;
+using Terminal.Properties;
 
 namespace Command
 {

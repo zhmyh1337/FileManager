@@ -1,13 +1,13 @@
 ﻿using CommandLine;
 using CommandLine.Text;
-using FileManager.Properties;
+using Terminal.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Utilities;
 
-namespace FileManager
+namespace Terminal
 {
     class Terminal
     {

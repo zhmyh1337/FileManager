@@ -1,5 +1,5 @@
 ﻿using CommandLine;
-using FileManager.Properties;
+using Terminal.Properties;
 using System;
 using System.IO;
 using Utilities;

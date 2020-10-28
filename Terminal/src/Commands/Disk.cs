@@ -1,6 +1,6 @@
 ﻿using CommandLine;
-using FileManager;
-using FileManager.Properties;
+using Terminal;
+using Terminal.Properties;
 using System;
 using System.IO;
 using Utilities;
@@ -42,7 +42,7 @@ namespace Command
                         }
                         else
                         {
-                            Terminal.WorkingDir = allDrives[id - 1].RootDirectory;
+                            Terminal.Terminal.WorkingDir = allDrives[id - 1].RootDirectory;
                         }
                     }
                     else
@@ -55,7 +55,7 @@ namespace Command
                         }
                         else
                         {
-                            Terminal.WorkingDir = found.RootDirectory;
+                            Terminal.Terminal.WorkingDir = found.RootDirectory;
                         }
                     }
                 }

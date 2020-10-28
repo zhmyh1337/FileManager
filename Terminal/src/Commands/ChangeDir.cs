@@ -1,6 +1,6 @@
 ﻿using CommandLine;
-using FileManager;
-using FileManager.Properties;
+using Terminal;
+using Terminal.Properties;
 using System;
 using System.IO;
 using Utilities;
@@ -22,7 +22,7 @@ namespace Command
             
             try
             {
-                Terminal.WorkingDir = ChangePath(Dir);
+                Terminal.Terminal.WorkingDir = ChangePath(Dir);
             }
             catch (Exception e)
             {
@@ -39,7 +39,7 @@ namespace Command
         /// <exception cref="DirectoryNotFoundException">When the combined directory doesn't exist.</exception>
         static public DirectoryInfo ChangePath(string path)
         {
-            var testDirectoryStr = Path.GetFullPath(Path.Combine(Terminal.WorkingDir.FullName, path.Trim()));
+            var testDirectoryStr = Path.GetFullPath(Path.Combine(Terminal.Terminal.WorkingDir.FullName, path.Trim()));
             var testDirectory = new DirectoryInfo(testDirectoryStr);
 
             if (!testDirectory.Exists)
