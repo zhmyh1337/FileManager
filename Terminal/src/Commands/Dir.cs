@@ -57,11 +57,11 @@ namespace Command
                 {
                     var table = new Table(
                         4,
-                        directory.EnumerateFiles("*", new EnumerationOptions()).Select(file => new string[] {
+                        directory.EnumerateFiles("*", new EnumerationOptions()).Select(file => new object[] {
                             file.Name,
-                            file.CreationTime.ToString(),
-                            file.LastWriteTime.ToString(),
-                            file.Length.ToString()
+                            file.CreationTime,
+                            file.LastWriteTime,
+                            file.Length
                         }).ToArray(),
                         Localization.dirFiles,
                         new string[] {
@@ -87,10 +87,10 @@ namespace Command
                 {
                     var table = new Table(
                         3,
-                        directory.EnumerateDirectories("*", new EnumerationOptions()).Select(dir => new string[] {
+                        directory.EnumerateDirectories("*", new EnumerationOptions()).Select(dir => new object[] {
                             dir.Name,
-                            dir.CreationTime.ToString(),
-                            dir.LastWriteTime.ToString()
+                            dir.CreationTime,
+                            dir.LastWriteTime
                         }).ToArray(),
                         Localization.dirDirectories,
                         new string[] {

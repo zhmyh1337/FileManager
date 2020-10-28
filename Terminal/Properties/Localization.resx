@@ -294,4 +294,28 @@
   <data name="dirSizeBytes" xml:space="preserve">
     <value>size (bytes)</value>
   </data>
+  <data name="diskDisks" xml:space="preserve">
+    <value>All disks:</value>
+  </data>
+  <data name="diskFormat" xml:space="preserve">
+    <value>format</value>
+  </data>
+  <data name="diskFreeSpace" xml:space="preserve">
+    <value>free space (bytes)</value>
+  </data>
+  <data name="diskID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="diskLabel" xml:space="preserve">
+    <value>label</value>
+  </data>
+  <data name="diskName" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="diskNoLabel" xml:space="preserve">
+    <value>No label</value>
+  </data>
+  <data name="diskTotalSize" xml:space="preserve">
+    <value>total size (bytes)</value>
+  </data>
 </root>

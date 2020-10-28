@@ -6,7 +6,7 @@ namespace Utilities
 {
     class Table
     {
-        public Table(int columnsCount, string[][] data, string name = null,
+        public Table(int columnsCount, object[][] data, string name = null,
             string[] header = null, int?[] maxLengthInColumn = null)
         {
             this.columnsCount = columnsCount;
@@ -22,7 +22,7 @@ namespace Utilities
         {
             int headerOffset = header == null ? 0 : 1;
 
-            var printData = new string[rowsCount + headerOffset][];
+            var printData = new object[rowsCount + headerOffset][];
             if (header != null)
             {
                 printData[0] = header;
@@ -43,7 +43,7 @@ namespace Utilities
 
                 for (int j = 0; j < columnsCount; j++)
                 {
-                    Logger.Print("║{0}", printData[i][j].CutWithDots(columnLengths[j]).PadRight(columnLengths[j]));
+                    Logger.Print("║{0}", printData[i][j].ToString().CutWithDots(columnLengths[j]).PadRight(columnLengths[j]));
                 }
 
                 Logger.PrintLine("║");
@@ -77,7 +77,7 @@ namespace Utilities
             {
                 for (int j = 0; j < columnsCount; j++)
                 {
-                    columnLengths[j] = Math.Max(columnLengths[j], data[i][j].Length);
+                    columnLengths[j] = Math.Max(columnLengths[j], data[i][j].ToString().Length);
                 }
             }
 
@@ -90,7 +90,7 @@ namespace Utilities
         }
 
         private int columnsCount;
-        private string[][] data;
+        private object[][] data;
         private string name;
         private string[] header;
         // Null for no length limit.

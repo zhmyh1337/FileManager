@@ -358,6 +358,78 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All disks:.
+        /// </summary>
+        public static string diskDisks {
+            get {
+                return ResourceManager.GetString("diskDisks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to format.
+        /// </summary>
+        public static string diskFormat {
+            get {
+                return ResourceManager.GetString("diskFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to free space (bytes).
+        /// </summary>
+        public static string diskFreeSpace {
+            get {
+                return ResourceManager.GetString("diskFreeSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        public static string diskID {
+            get {
+                return ResourceManager.GetString("diskID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to label.
+        /// </summary>
+        public static string diskLabel {
+            get {
+                return ResourceManager.GetString("diskLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name.
+        /// </summary>
+        public static string diskName {
+            get {
+                return ResourceManager.GetString("diskName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No label.
+        /// </summary>
+        public static string diskNoLabel {
+            get {
+                return ResourceManager.GetString("diskNoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to total size (bytes).
+        /// </summary>
+        public static string diskTotalSize {
+            get {
+                return ResourceManager.GetString("diskTotalSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color {0} is out of bounds..
         /// </summary>
         public static string errColorBounds {

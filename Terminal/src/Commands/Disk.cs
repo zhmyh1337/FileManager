@@ -1,6 +1,7 @@
 ﻿using CommandLine;
 using System;
 using System.IO;
+using System.Linq;
 using Terminal.Properties;
 using Utilities;
 
@@ -18,18 +19,42 @@ namespace Command
         public override void Execute()
         {
             base.Execute();
-            // TODO table with ID, name, space, type etc.
+            
             try
             {
                 var allDrives = DriveInfo.GetDrives();
 
                 if (Disk == null)
                 {
-                    int id = 1;
-                    foreach (var drive in allDrives)
-                    {
-                        Logger.PrintLine($"{id++}) {drive.Name}");
-                    }
+                    var table = new Table(
+                        6,
+                        DriveInfo.GetDrives().Select((drive, id) => new object[] {
+                            id + 1,
+                            drive.Name,
+                            drive.VolumeLabel == string.Empty ? Localization.diskNoLabel : drive.VolumeLabel,
+                            drive.AvailableFreeSpace,
+                            drive.TotalSize,
+                            drive.DriveFormat
+                        }).ToArray(),
+                        Localization.diskDisks,
+                        new string[] {
+                            Localization.diskID,
+                            Localization.diskName,
+                            Localization.diskLabel,
+                            Localization.diskFreeSpace,
+                            Localization.diskTotalSize,
+                            Localization.diskFormat
+                        },
+                        new int?[] {
+                            null,
+                            null,
+                            20,
+                            null,
+                            null,
+                            null
+                        }
+                    );
+                    table.Print();
                 }
                 else
                 {
