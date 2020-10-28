@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Net;
 using System.Text;
 
 namespace Utilities
@@ -87,7 +86,7 @@ namespace Utilities
         private void GenerateColumnLengths()
         {
             rowsCount = data.GetLength(0);
-            columnLengths = new int[columnsCount];
+            columnLengths = Enumerable.Range(0, columnsCount).Select(x => header == null ? 0 : header[x].Length).ToArray();
 
             for (int i = 0; i < rowsCount; i++)
             {

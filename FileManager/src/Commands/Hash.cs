@@ -58,22 +58,50 @@ namespace Command
                 }
 
                 var maxPathLength = Files.Select(s => s.Length).Max();
-                const string pathHeaderTemplate = "===== {0} =====";
+                var algorithmHeader = $"{HashAlgo} hashing algorithm";
+                var hashingAlgorithm = HashAlgorithms.GetHashAlgorithm(HashAlgo);
+                // We encode each byte with two symbols.
+                var hashSumSymbolLength = hashingAlgorithm.HashSize / 8 * 2;
+                var consoleMinWidthToDoTable = Math.Max(algorithmHeader.Length + 2, hashSumSymbolLength + maxPathLength + 3) + 1;
 
-                Logger.PrintLine($"[{HashAlgo} hashing algorithm]");
-                foreach (var filePath in Files)
+                Func<string, string> filePathToHashSumString = filePath =>
                 {
-                    Logger.PrintLine($"===== {filePath.PadRight(maxPathLength)} =====");
+                    var fileBytes = File.ReadAllBytes(filePath);
+                    var hashBytes = hashingAlgorithm.ComputeHash(fileBytes);
+                    return string.Join("", hashBytes.Select(x => x.ToString("x2")));
+                };
 
-                    var hashingAlgorithm = HashAlgorithms.GetHashAlgorithm(HashAlgo);
-                    var inputBytes = File.ReadAllBytes(filePath);
-                    var hashBytes = hashingAlgorithm.ComputeHash(inputBytes);
-                    
-                    Logger.PrintLine(string.Join("", hashBytes.Select(x => x.ToString("x2"))));
+                // No space for table.
+                if (Console.WindowWidth < consoleMinWidthToDoTable)
+                {
+                    const string pathHeaderTemplate = "===== {0} =====";
+                    Logger.PrintLine($"[{algorithmHeader}]");
+
+                    foreach (var filePath in Files)
+                    {
+                        Logger.PrintLine($"===== {filePath.PadRight(maxPathLength)} =====");
+                        Logger.PrintLine(filePathToHashSumString(filePath));
+                    }
+
+                    // Not counting {0}.
+                    Logger.PrintLine(new string('=', pathHeaderTemplate.Length - 3 + maxPathLength));
                 }
+                else
+                {
+                    var data = new string[Files.Count(), 2];
+                    for (int i = 0; i < Files.Count(); i++)
+                    {
+                        var filePath = Files.ElementAt(i);
+                        data[i, 0] = filePath;
+                        data[i, 1] = filePathToHashSumString(filePath);
+                    }
 
-                // Not counting {0}.
-                Logger.PrintLine(new string('=', pathHeaderTemplate.Length - 3 + maxPathLength));
+                    // Keep in mind that (tableHeader[0].Length + tableHeader[1].Length)
+                    // is gotta be < (algorithmHeader.Length).
+                    var tableHeader = new string[2] { "filePath", "hashSum" };
+                    var table = new Table(2, data, algorithmHeader, tableHeader);
+                    table.Print();
+                }
             }
             catch (Exception e)
             {
