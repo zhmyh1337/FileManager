@@ -6,7 +6,7 @@ using Utilities;
 namespace Command
 {
     /// <summary>
-    /// This command changes console foreground color.
+    /// This command changes the foreground color of the console (or, if no color is specified, shows all console colors).
     /// </summary>
     [Verb("color", HelpText = "cmdColor", ResourceType = typeof(Localization))]
     class BaseColor : BaseCommand

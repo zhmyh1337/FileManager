@@ -62,7 +62,7 @@ namespace Command
                     {
                         if (id < 1 || id > allDrives.Length)
                         {
-                            throw new ArgumentException(string.Format(Localization.errDiskInvalidNumber, id));
+                            throw new ArgumentException(string.Format(Localization.errDiskInvalidID, id));
                         }
                         else
                         {

@@ -124,13 +124,13 @@
     <value>This command changes the disk if specified, otherwise displays the list of all disks.</value>
   </data>
   <data name="diskDisk" xml:space="preserve">
-    <value>Disk to set (either its ID or name).</value>
+    <value>Disk to set (either its ID or name) (optional).</value>
   </data>
   <data name="errDiskInvalidName" xml:space="preserve">
     <value>Unable to find the disk with name "{0}".</value>
   </data>
-  <data name="errDiskInvalidNumber" xml:space="preserve">
-    <value>Unable to find the disk with number {0}.</value>
+  <data name="errDiskInvalidID" xml:space="preserve">
+    <value>Unable to find the disk with ID {0}.</value>
   </data>
   <data name="errTerminalVersionAsOption" xml:space="preserve">
     <value>"--version" option is invalid in this context.</value>
@@ -175,7 +175,7 @@
     <value>Files to print.</value>
   </data>
   <data name="cmdColor" xml:space="preserve">
-    <value>This command changes the foreground color of the console (or, if not specified, shows all console colors).</value>
+    <value>This command changes the foreground color of the console (or, if no color is specified, shows all console colors).</value>
   </data>
   <data name="cmdCopy" xml:space="preserve">
     <value>This command copies file from one place to another (and overwrites the old file it if specified).</value>
@@ -190,7 +190,7 @@
     <value>This command creates a new file and fills it with content in some encoding if specified. If the file existed and overwrite option was specified, overwrites it. If the file existed and append option was specified, appends to it.</value>
   </data>
   <data name="colorColor" xml:space="preserve">
-    <value>Color to specify (optional).</value>
+    <value>Color to change (optional).</value>
   </data>
   <data name="copyFrom" xml:space="preserve">
     <value>Copy from file path.</value>
@@ -320,6 +320,15 @@
   </data>
   <data name="diskTotalSize" xml:space="preserve">
     <value>total size (bytes)</value>
+  </data>
+  <data name="hashFile" xml:space="preserve">
+    <value>file</value>
+  </data>
+  <data name="hashHashingAlgorithm" xml:space="preserve">
+    <value>{0} hashing algorithm</value>
+  </data>
+  <data name="hashHashSum" xml:space="preserve">
+    <value>hash sum</value>
   </data>
   <data name="langLocale" xml:space="preserve">
     <value>Locale to set (supported: en-US, ru-RU).</value>

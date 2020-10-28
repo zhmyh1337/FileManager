@@ -88,7 +88,7 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This command changes the foreground color of the console (or, if not specified, shows all console colors)..
+        ///   Looks up a localized string similar to This command changes the foreground color of the console (or, if no color is specified, shows all console colors)..
         /// </summary>
         public static string cmdColor {
             get {
@@ -205,7 +205,7 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Color to specify (optional)..
+        ///   Looks up a localized string similar to Color to change (optional)..
         /// </summary>
         public static string colorColor {
             get {
@@ -358,7 +358,7 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disk to set (either its ID or name)..
+        ///   Looks up a localized string similar to Disk to set (either its ID or name) (optional)..
         /// </summary>
         public static string diskDisk {
             get {
@@ -484,20 +484,20 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to find the disk with ID {0}..
+        /// </summary>
+        public static string errDiskInvalidID {
+            get {
+                return ResourceManager.GetString("errDiskInvalidID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find the disk with name &quot;{0}&quot;..
         /// </summary>
         public static string errDiskInvalidName {
             get {
                 return ResourceManager.GetString("errDiskInvalidName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find the disk with number {0}..
-        /// </summary>
-        public static string errDiskInvalidNumber {
-            get {
-                return ResourceManager.GetString("errDiskInvalidNumber", resourceCulture);
             }
         }
         
@@ -565,11 +565,38 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to file.
+        /// </summary>
+        public static string hashFile {
+            get {
+                return ResourceManager.GetString("hashFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Files to calculate hashes..
         /// </summary>
         public static string hashFiles {
             get {
                 return ResourceManager.GetString("hashFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} hashing algorithm.
+        /// </summary>
+        public static string hashHashingAlgorithm {
+            get {
+                return ResourceManager.GetString("hashHashingAlgorithm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hash sum.
+        /// </summary>
+        public static string hashHashSum {
+            get {
+                return ResourceManager.GetString("hashHashSum", resourceCulture);
             }
         }
         

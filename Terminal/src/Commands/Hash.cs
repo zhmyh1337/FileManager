@@ -59,7 +59,7 @@ namespace Command
                 }
 
                 var maxPathLength = Files.Select(s => s.Length).Max();
-                var algorithmHeader = $"{HashAlgo} hashing algorithm";
+                var algorithmHeader = string.Format(Localization.hashHashingAlgorithm, HashAlgo);
                 var hashingAlgorithm = HashAlgorithms.GetHashAlgorithm(HashAlgo);
                 // We encode each byte with two symbols.
                 var hashSumSymbolLength = hashingAlgorithm.HashSize / 8 * 2;
@@ -97,7 +97,7 @@ namespace Command
 
                     // Keep in mind that (tableHeader[0].Length + tableHeader[1].Length)
                     // is gotta be < (algorithmHeader.Length).
-                    var tableHeader = new string[2] { "filePath", "hashSum" };
+                    var tableHeader = new string[2] { Localization.hashFile, Localization.hashHashSum };
                     var table = new Table(2, data, algorithmHeader, tableHeader);
                     table.Print();
                 }
