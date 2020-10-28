@@ -25,20 +25,20 @@ namespace Utilities
             {
                 for (int j = 0; j < columnsCount; j++)
                 {
-                    printData[0, j] = CutString(header[j], columnLengths[j]);
+                    printData[0, j] = header[j].CutWithDots(columnLengths[j]);
                 }
             }
             for (int i = 0; i < rowsCount; i++)
             {
                 for (int j = 0; j < columnsCount; j++)
                 {
-                    printData[i + (header == null ? 0 : 1), j] = CutString(data[i, j], columnLengths[j]);
+                    printData[i + (header == null ? 0 : 1), j] = data[i, j].CutWithDots(columnLengths[j]);
                 }
             }
 
             if (name != null)
             {
-                var printName = CutString(name, globalLength);
+                var printName = name.CutWithDots(globalLength);
                 PrintSeparator('╔', '╗', '═', '═');
                 Logger.PrintLine($"║{printName.PadRight(globalLength)}║");
             }
@@ -72,15 +72,6 @@ namespace Utilities
             sb.Append(right);
 
             Console.WriteLine(sb.ToString());
-        }
-
-        private string CutString(string s, int maxLength)
-        {
-            if (s.Length <= maxLength)
-                return s;
-
-            s = s.Remove(Math.Max(0, maxLength - 3));
-            return s + new string('.', Math.Min(3, maxLength));
         }
 
         private void GenerateColumnLengths()

@@ -1,8 +1,7 @@
 ﻿using CommandLine;
-using Terminal;
-using Terminal.Properties;
 using System;
 using System.IO;
+using Terminal.Properties;
 using Utilities;
 
 namespace Command
