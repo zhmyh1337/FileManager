@@ -5,21 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Utilities;
 
 namespace Command
 {
     /// <summary>
-    /// This command prints content of one (or more files) to console with default (or specified) encoding.
+    /// This command prints the hash sums of files.
     /// </summary>
-    [Verb("print", HelpText = "cmdPrint", ResourceType = typeof(Localization))]
-    class BasePrint : BaseCommand
+    [Verb("hash", HelpText = "cmdHash", ResourceType = typeof(Localization))]
+    class BaseHash : BaseCommand
     {
-        [Option('e', "encoding", Default = Encodings.SupportedEncodings.Default, 
-            HelpText = "commonEncoding", ResourceType = typeof(Localization))]
-        public Encodings.SupportedEncodings Encoding { get; set; }
+        [Option('a', "algorithm", Default = HashAlgorithms.SupportedHashAlgorithms.MD5, 
+            HelpText = "hashAlgo", ResourceType = typeof(Localization))]
+        public HashAlgorithms.SupportedHashAlgorithms HashAlgo { get; set; }
 
-        [Value(0, MetaName = "files", HelpText = "printFiles", Required = true, ResourceType = typeof(Localization))]
+        [Value(0, MetaName = "files", HelpText = "hashFiles", Required = true, ResourceType = typeof(Localization))]
         public IEnumerable<string> Files { get; set; }
 
         [Usage(ApplicationAlias = "\b")]
@@ -27,18 +28,18 @@ namespace Command
         {
             get
             {
-                yield return new Example(Localization.exampleCommon, 
-                    new UnParserSettings { PreferShortName = true }, 
-                    new BasePrint
+                yield return new Example(Localization.exampleCommon,
+                    new UnParserSettings { PreferShortName = true },
+                    new BaseHash
                     {
                         Files = new string[] { "file.ext" },
                     });
                 yield return new Example(Localization.exampleAdvanced,
                     new UnParserSettings { PreferShortName = true },
-                    new BasePrint
+                    new BaseHash
                     {
                         Files = new string[] { "file1.ext", "file2.ext", "file3.ext" },
-                        Encoding = Encodings.SupportedEncodings.ASCII,
+                        HashAlgo = HashAlgorithms.SupportedHashAlgorithms.SHA512,
                     });
             }
         }
@@ -60,10 +61,16 @@ namespace Command
                 var maxPathLength = Files.Select(s => s.Length).Max();
                 const string pathHeaderTemplate = "===== {0} =====";
 
+                Logger.PrintLine($"[{HashAlgo} hashing algorithm]");
                 foreach (var filePath in Files)
                 {
                     Logger.PrintLine($"===== {filePath.PadRight(maxPathLength)} =====");
-                    Logger.PrintLine(File.ReadAllText(filePath, Encoding.GetEncoding()));
+
+                    var hashingAlgorithm = HashAlgorithms.GetHashAlgorithm(HashAlgo);
+                    var inputBytes = File.ReadAllBytes(filePath);
+                    var hashBytes = hashingAlgorithm.ComputeHash(inputBytes);
+                    
+                    Logger.PrintLine(string.Join("", hashBytes.Select(x => x.ToString("x2"))));
                 }
 
                 // Not counting {0}.
@@ -77,12 +84,12 @@ namespace Command
         }
     }
 
-    class QPrint : BasePrint, IQuiteable
+    class QHash : BaseHash, IQuiteable
     {
         public bool Quite { get; set; }
     }
 
-    class NPrint : BasePrint, INotQuiteable
+    class NHash : BaseHash, INotQuiteable
     {
         public bool Quite { get => false; set => throw new NotImplementedException(); }
     }

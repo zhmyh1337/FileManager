@@ -273,4 +273,13 @@
   <data name="writeFileAppend" xml:space="preserve">
     <value>Whether to append to the file if it exists.</value>
   </data>
+  <data name="cmdHash" xml:space="preserve">
+    <value>This command prints the hash sums of files.</value>
+  </data>
+  <data name="hashAlgo" xml:space="preserve">
+    <value>Hashing algorithm (either MD5, SHA1, SHA256, SHA384 or SHA512).</value>
+  </data>
+  <data name="hashFiles" xml:space="preserve">
+    <value>Files to calculate hashes.</value>
+  </data>
 </root>

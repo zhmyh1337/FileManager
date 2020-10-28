@@ -142,6 +142,15 @@ namespace FileManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command prints the hash sums of files..
+        /// </summary>
+        public static string cmdHash {
+            get {
+                return ResourceManager.GetString("cmdHash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command creates a directory with the specified path..
         /// </summary>
         public static string cmdMkdir {
@@ -426,6 +435,24 @@ namespace FileManager.Properties {
         public static string exampleMultiline {
             get {
                 return ResourceManager.GetString("exampleMultiline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hashing algorithm (either MD5, SHA1, SHA256, SHA384 or SHA512)..
+        /// </summary>
+        public static string hashAlgo {
+            get {
+                return ResourceManager.GetString("hashAlgo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files to calculate hashes..
+        /// </summary>
+        public static string hashFiles {
+            get {
+                return ResourceManager.GetString("hashFiles", resourceCulture);
             }
         }
         

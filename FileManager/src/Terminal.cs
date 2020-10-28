@@ -217,6 +217,7 @@ namespace FileManager
             typeof(Command.QMakeDir),
             typeof(Command.QRemoveDir),
             typeof(Command.QHacker),
+            typeof(Command.QHash),
         };
 
         /// <summary>
@@ -237,6 +238,7 @@ namespace FileManager
             typeof(Command.NMakeDir),
             typeof(Command.NRemoveDir),
             typeof(Command.NHacker),
+            typeof(Command.NHash),
         };
 
         /// <summary>
