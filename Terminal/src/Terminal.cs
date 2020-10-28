@@ -129,6 +129,7 @@ namespace Terminal
                     else
                     {
                         Console.WriteLine(HeadingInfo.Default);
+                        Console.WriteLine();
                     }
                     return;
                 // That's ok. Just continuing.
