@@ -218,6 +218,7 @@ namespace Terminal
             typeof(Command.QRemoveDir),
             typeof(Command.QHacker),
             typeof(Command.QHash),
+            typeof(Command.QLanguage),
         };
 
         /// <summary>
@@ -239,6 +240,7 @@ namespace Terminal
             typeof(Command.NRemoveDir),
             typeof(Command.NHacker),
             typeof(Command.NHash),
+            typeof(Command.NLanguage),
         };
 
         /// <summary>

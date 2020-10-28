@@ -151,6 +151,15 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This command changes the language..
+        /// </summary>
+        public static string cmdLang {
+            get {
+                return ResourceManager.GetString("cmdLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This command creates a directory with the specified path..
         /// </summary>
         public static string cmdMkdir {
@@ -561,6 +570,24 @@ namespace Terminal.Properties {
         public static string hashFiles {
             get {
                 return ResourceManager.GetString("hashFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locale to set (supported: en-US, ru-RU)..
+        /// </summary>
+        public static string langLocale {
+            get {
+                return ResourceManager.GetString("langLocale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locale {0} is not supported..
+        /// </summary>
+        public static string langLocaleNotSupported {
+            get {
+                return ResourceManager.GetString("langLocaleNotSupported", resourceCulture);
             }
         }
         

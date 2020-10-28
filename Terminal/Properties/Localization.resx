@@ -294,6 +294,9 @@
   <data name="dirSizeBytes" xml:space="preserve">
     <value>size (bytes)</value>
   </data>
+  <data name="cmdLang" xml:space="preserve">
+    <value>This command changes the language.</value>
+  </data>
   <data name="diskDisks" xml:space="preserve">
     <value>All disks:</value>
   </data>
@@ -317,5 +320,11 @@
   </data>
   <data name="diskTotalSize" xml:space="preserve">
     <value>total size (bytes)</value>
+  </data>
+  <data name="langLocale" xml:space="preserve">
+    <value>Locale to set (supported: en-US, ru-RU).</value>
+  </data>
+  <data name="langLocaleNotSupported" xml:space="preserve">
+    <value>Locale {0} is not supported.</value>
   </data>
 </root>
