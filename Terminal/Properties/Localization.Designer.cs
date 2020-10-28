@@ -268,6 +268,24 @@ namespace Terminal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to change time.
+        /// </summary>
+        public static string dirChangeTime {
+            get {
+                return ResourceManager.GetString("dirChangeTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to creation time.
+        /// </summary>
+        public static string dirCreationTime {
+            get {
+                return ResourceManager.GetString("dirCreationTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Directory to scan (optional)..
         /// </summary>
         public static string dirDir {
@@ -309,6 +327,24 @@ namespace Terminal.Properties {
         public static string dirHideFiles {
             get {
                 return ResourceManager.GetString("dirHideFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name.
+        /// </summary>
+        public static string dirName {
+            get {
+                return ResourceManager.GetString("dirName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to size (bytes).
+        /// </summary>
+        public static string dirSizeBytes {
+            get {
+                return ResourceManager.GetString("dirSizeBytes", resourceCulture);
             }
         }
         

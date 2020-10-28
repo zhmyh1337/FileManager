@@ -4,6 +4,8 @@ using Terminal.Properties;
 using System;
 using System.Collections.Generic;
 using Utilities;
+using System.Linq;
+using System.IO;
 
 namespace Command
 {
@@ -49,16 +51,33 @@ namespace Command
 
             try
             {
-                var dir = BaseChangeDir.ChangePath(Dir);
+                var directory = BaseChangeDir.ChangePath(Dir);
 
                 if (!HideFiles)
                 {
-                    Logger.PrintLine(Localization.dirFiles);
-                    var files = dir.GetFiles();
-                    foreach (var file in files)
-                    {
-                        Logger.PrintLine("{0}", file.Name);
-                    }
+                    var table = new Table(
+                        4,
+                        directory.EnumerateFiles("*", new EnumerationOptions()).Select(file => new string[] {
+                            file.Name,
+                            file.CreationTime.ToString(),
+                            file.LastWriteTime.ToString(),
+                            file.Length.ToString()
+                        }).ToArray(),
+                        Localization.dirFiles,
+                        new string[] {
+                            Localization.dirName,
+                            Localization.dirCreationTime,
+                            Localization.dirChangeTime,
+                            Localization.dirSizeBytes
+                        },
+                        new int?[] {
+                            40,
+                            null,
+                            null,
+                            null
+                        }
+                    );
+                    table.Print();
 
                     if (!HideDirectories)
                         Logger.PrintLine();
@@ -66,12 +85,26 @@ namespace Command
 
                 if (!HideDirectories)
                 {
-                    Logger.PrintLine(Localization.dirDirectories);
-                    var directories = dir.GetDirectories();
-                    foreach (var _dir in directories)
-                    {
-                        Logger.PrintLine("{0}", _dir.Name);
-                    }
+                    var table = new Table(
+                        3,
+                        directory.EnumerateDirectories("*", new EnumerationOptions()).Select(dir => new string[] {
+                            dir.Name,
+                            dir.CreationTime.ToString(),
+                            dir.LastWriteTime.ToString()
+                        }).ToArray(),
+                        Localization.dirDirectories,
+                        new string[] {
+                            Localization.dirName,
+                            Localization.dirCreationTime,
+                            Localization.dirChangeTime
+                        },
+                        new int?[] {
+                            50,
+                            null,
+                            null
+                        }
+                    );
+                    table.Print();
                 }
             }
             catch (Exception e)

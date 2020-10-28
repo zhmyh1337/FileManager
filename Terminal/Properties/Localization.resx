@@ -282,4 +282,16 @@
   <data name="hashFiles" xml:space="preserve">
     <value>Files to calculate hashes.</value>
   </data>
+  <data name="dirChangeTime" xml:space="preserve">
+    <value>change time</value>
+  </data>
+  <data name="dirCreationTime" xml:space="preserve">
+    <value>creation time</value>
+  </data>
+  <data name="dirName" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="dirSizeBytes" xml:space="preserve">
+    <value>size (bytes)</value>
+  </data>
 </root>

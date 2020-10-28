@@ -7,13 +7,13 @@ namespace Utilities
     class Table
     {
         public Table(int columnsCount, string[][] data, string name = null,
-            string[] header = null, int[] maxLengthInColumn = null)
+            string[] header = null, int?[] maxLengthInColumn = null)
         {
             this.columnsCount = columnsCount;
             this.data = data;
             this.name = name;
             this.header = header;
-            this.maxLengthInColumn = maxLengthInColumn;
+            this.maxLengthInColumn = maxLengthInColumn ?? new int?[columnsCount];
 
             GenerateColumnLengths();
         }
@@ -81,12 +81,9 @@ namespace Utilities
                 }
             }
 
-            if (maxLengthInColumn != null)
+            for (int j = 0; j < columnsCount; j++)
             {
-                for (int j = 0; j < columnsCount; j++)
-                {
-                    columnLengths[j] = Math.Min(columnLengths[j], maxLengthInColumn[j]);
-                }
+                columnLengths[j] = Math.Min(columnLengths[j], maxLengthInColumn[j] ?? int.MaxValue);
             }
 
             globalLength = columnLengths.Sum() + columnsCount - 1;
@@ -96,7 +93,8 @@ namespace Utilities
         private string[][] data;
         private string name;
         private string[] header;
-        private int[] maxLengthInColumn;
+        // Null for no length limit.
+        private int?[] maxLengthInColumn;
 
         private int rowsCount;
         private int[] columnLengths;
