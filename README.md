@@ -11,38 +11,38 @@ I also added localization here, the terminal now supports two languages and addi
 <details>
   <summary>help command</summary>
   List of all available commands:
-  ![help](https://i.imgur.com/UsRoVLT.png)
+  <img src="https://i.imgur.com/UsRoVLT.png">
 </details>
 
 <details>
   <summary>dir command</summary>
   English locale:
-  ![dir](https://i.imgur.com/5lxJCWD.png)
+  <img src="https://i.imgur.com/5lxJCWD.png">
   
   Russian locale:
-  ![dir](https://i.imgur.com/whcKf5d.png)
+  <img src="https://i.imgur.com/whcKf5d.png">
 </details>
 
 <details>
   <summary>hash command</summary>
   English locale:
-  ![hash](https://i.imgur.com/LOuWZUz.png)
+  <img src="https://i.imgur.com/LOuWZUz.png">
   
   Russian locale:
-  ![hash](https://i.imgur.com/wkXdsSK.png)
+  <img src="https://i.imgur.com/wkXdsSK.png">
 </details>
 
 <details>
   <summary>color list command</summary>
-  ![color](https://i.imgur.com/MRsx1ro.png)
+  <img src="https://i.imgur.com/MRsx1ro.png">
 </details>
 
 <details>
   <summary>--help option</summary>
-  ![--help](https://i.imgur.com/eiXxcp9.png)
+  <img src="https://i.imgur.com/nvlrG64.png">
 </details>
 
 <details>
   <summary>secret command (hidden in the help menu)</summary>
-  ![secret](https://i.imgur.com/4XLzULZ.png)
+  <img src="https://i.imgur.com/4XLzULZ.png">
 </details>
